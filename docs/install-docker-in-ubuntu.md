@@ -24,3 +24,56 @@ sudo usermod -a -G docker cloud_user
 
 ```
 
+```bash
+sudo docker run hello-world
+```
+
+Fundementals behind adding cloud_user to docker group
+
+```bash
+cat /ectc/passwd
+cat /etc/group
+sudo usermod -a -G docker cloud_user
+
+/etc/sysconfig/docker   # Docker daemon config options
+```
+
+Modify the /etc/sysconfig/docker file 
+
+```bash
+OPTIONS='--selinux-enabled --log-driver=journald --signature-verification=false -G docker'
+``` 
+
+Restart the docker daemon
+
+```bash
+ sudo systemctl daemon-reload
+ sudo systemctl restart docker
+
+``` 
+
+Now we can run without using sudo
+
+```bash
+docker run hello-world
+```
+
+```bash
+docker run --rm -it --security-opt seccomp=unconfined --cpus="0.2" --memory="500m" docker.io/python
+```
+
+```python
+import threading
+
+def test():
+    while True:
+      1000 * 1000
+
+>>> threading.Thread(target=test).start()
+```
+
+Install htop to check the processes, CPU and memory consumption
+
+```bash
+yum install htop
+```
