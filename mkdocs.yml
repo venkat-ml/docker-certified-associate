@@ -4,6 +4,7 @@ nav:
   - Home: index.md
   - Install Docker in Ubuntu: install-docker-in-ubuntu.md
   - Practice: to_read.md
+  - Next Steps: next-steps.md
 
 theme:
   name: material
