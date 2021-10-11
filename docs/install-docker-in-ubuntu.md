@@ -77,3 +77,32 @@ Install htop to check the processes, CPU and memory consumption
 ```bash
 yum install htop
 ```
+
+###### overall limitations can be provided at /etc/system/,y_limits.slice
+
+```bash
+Description=my slice for docker resources
+before=slices.target
+
+[Slice]
+CPUAccounting=true
+CPUQuota=20%
+MemoryAccounting=true
+MemoryLimit=200M
+```
+```bash
+ sudo systemctl daemon-reload
+ sudo systemctl restart docker
+``` 
+```bash
+ docker run --rm -it --cgroup-parent=my_limits.slice docker.io/python
+``` 
+```python
+import threading
+
+def test():
+    while True:
+      1000 * 1000
+
+>>> threading.Thread(target=test).start()
+```

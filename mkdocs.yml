@@ -2,9 +2,12 @@ site_name: DCA
 
 nav:
   - Home: index.md
-  - Install Docker in Ubuntu: install-docker-in-ubuntu.md
+  - Install Docker: install-docker.md
+  - Seccomp: seccomp.md
+  - SSL Certificate: ssl-certificate.md
+  - Bridge: bridge.md
+  - Volumes: volume.md
   - Practice: to_read.md
-  - Next Steps: next-steps.md
 
 theme:
   name: material
