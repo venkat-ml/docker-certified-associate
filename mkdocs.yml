@@ -2,12 +2,31 @@ site_name: DCA
 
 nav:
   - Home: index.md
-  - Install Docker: install-docker.md
-  - Seccomp: seccomp.md
-  - SSL Certificate: ssl-certificate.md
-  - Bridge: bridge.md
-  - Volumes: volume.md
-  - Practice: to_read.md
+
+  - Getting Started:
+      - Install Docker: install-docker.md
+
+  - Storage:
+      - Volumes: Storage/volumes.md
+      - Storage: Storage/Storage.md
+      - Configure Devicemapper: Storage/configure-device-mapper.md
+      - Docker Volumes: Storage/docker-volumes.md
+      - Image Cleanup: Storage/image-cleanup.md
+      - Storage in a cluster: Storage/storage-in-cluster.md
+      - Using Volumes in Docker Containers: Storage/using-volumes-in-docker-containers.md
+      - Using Storage Volumes with Docker Swarm: Storage/use-storage-volumes-with-docker-swarm.md
+
+  - Security:
+      - Seccomp: Security/seccomp.md
+      - SSL Certificate: Security/ssl-certificate.md
+
+  - Networking:
+      - Bridge: Networking/bridge.md
+      - External DNS: Networking/external-dns.md
+
+  - Practice:
+      - Commands: commands.md
+      - To read: to_read.md
 
 theme:
   name: material
