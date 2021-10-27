@@ -1,0 +1,1359 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Universal Control Plane - DCA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ucp" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DCA" class="md-header__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Universal Control Plane
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DCA" class="md-nav__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DCA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/install-docker/" class="md-nav__link">
+        Install Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/dockerd/" class="md-nav__link">
+        Dockerd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/commands/" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/probes/" class="md-nav__link">
+        Probes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DockerEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DockerEE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DockerEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-hub/" class="md-nav__link">
+        Docker Hub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ee/" class="md-nav__link">
+        Docker Enterprise Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dct/" class="md-nav__link">
+        Docker Content Trust
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dtr/" class="md-nav__link">
+        Docker Trust Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Universal Control Plane
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Universal Control Plane
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ucp" class="md-nav__link">
+    UCP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-bundle" class="md-nav__link">
+    Client Bundle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    Subjects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ucp-agent" class="md-nav__link">
+    ucp-agent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundles" class="md-nav__link">
+    Bundles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#san" class="md-nav__link">
+    SAN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-cli" class="md-nav__link">
+    Docker CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grant" class="md-nav__link">
+    Grant
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x509-issue" class="md-nav__link">
+    x509 issue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-certificate-expiration" class="md-nav__link">
+    Node Certificate Expiration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teams-permission" class="md-nav__link">
+    Team's permission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    RBAC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_ping" class="md-nav__link">
+    #_ping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sso-with-ucp" class="md-nav__link">
+    SSO with UCP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-role-should-be-set-in-ucp-for-the-dba-team-to-allow-them-to-create-their-own-volumes-view-only" class="md-nav__link">
+    Which role should be set in UCP for the DBA team to allow them to create their own volumes? View Only
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-is-used-to-access-audit-logs-of-universal-control-plane" class="md-nav__link">
+    commands is used to access audit logs of Universal Control Plane
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/configure-device-mapper/" class="md-nav__link">
+        Configure Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/devicemapper/" class="md-nav__link">
+        Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/volumes/" class="md-nav__link">
+        Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/docker-volumes/" class="md-nav__link">
+        Volumes Handson
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/Storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/storage-in-cluster/" class="md-nav__link">
+        Storage in a cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/image-cleanup/" class="md-nav__link">
+        Image Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/using-volumes-in-docker-containers/" class="md-nav__link">
+        Using Volumes in Docker Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/use-storage-volumes-with-docker-swarm/" class="md-nav__link">
+        Using Storage Volumes with Docker Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/apparmor/" class="md-nav__link">
+        AppArmor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/seccomp/" class="md-nav__link">
+        Seccomp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/ssl-certificate/" class="md-nav__link">
+        SSL Certificate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/bridge/" class="md-nav__link">
+        Bridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/external-dns/" class="md-nav__link">
+        External DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/swarm/" class="md-nav__link">
+        Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Practice
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Practice" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Practice
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_read/" class="md-nav__link">
+        To read
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ucp" class="md-nav__link">
+    UCP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collections" class="md-nav__link">
+    Collections
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ldap" class="md-nav__link">
+    LDAP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-bundle" class="md-nav__link">
+    Client Bundle
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#subjects" class="md-nav__link">
+    Subjects
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ucp-agent" class="md-nav__link">
+    ucp-agent
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bundles" class="md-nav__link">
+    Bundles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#san" class="md-nav__link">
+    SAN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-cli" class="md-nav__link">
+    Docker CLI
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#grant" class="md-nav__link">
+    Grant
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x509-issue" class="md-nav__link">
+    x509 issue
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#node-certificate-expiration" class="md-nav__link">
+    Node Certificate Expiration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#teams-permission" class="md-nav__link">
+    Team's permission
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rbac" class="md-nav__link">
+    RBAC
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#roles" class="md-nav__link">
+    roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#backup" class="md-nav__link">
+    Backup
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_ping" class="md-nav__link">
+    #_ping
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sso-with-ucp" class="md-nav__link">
+    SSO with UCP
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-role-should-be-set-in-ucp-for-the-dba-team-to-allow-them-to-create-their-own-volumes-view-only" class="md-nav__link">
+    Which role should be set in UCP for the DBA team to allow them to create their own volumes? View Only
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands-is-used-to-access-audit-logs-of-universal-control-plane" class="md-nav__link">
+    commands is used to access audit logs of Universal Control Plane
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Universal Control Plane</h1>
+                
+                <h6 id="ucp">UCP</h6>
+<ul>
+<li>
+<p>UCP always runs with HTTPS enabled. When you connect to UCP, you need to make sure that the hostname that you use to connect is recognized by UCP’s certificates.</p>
+</li>
+<li>
+<p>If, for instance, you put UCP behind a load balancer that forwards its traffic to your UCP instance, your requests will be for the load balancer’s hostname or IP address, not UCP’s. UCP will reject these requests unless you include the load balancer’s address as a Subject Alternative Name (or SAN) in UCP’s certificates.</p>
+</li>
+<li>
+<p>If you use your own TLS certificates, make sure that they have the correct SAN values</p>
+</li>
+<li>
+<p>If you want to use the self-signed certificate that UCP has out of the box, you can set up the SANs when you install UCP with the --san argument. You can also add them after installation.</p>
+</li>
+</ul>
+<p><strong>Sign images using notary</strong>
+- To sign images in a way that UCP trusts them you need to:
+    - Configure your Notary client
+    - Initialize trust metadata for the repository
+    - Delegate signing to the keys in your UCP client bundle</p>
+<h6 id="collections">Collections</h6>
+<p>Docker Enterprise enables controlling access to swarm resources by using collections. A collection is a grouping of swarm cluster resources that you access by specifying a directory-like path. Before grants can be implemented, collections need to be designed to group resources in a way that makes sense for an organization.</p>
+<p>The following example shows the potential access policy of an organization. Consider an organization with two application teams, Mobile and Payments, that share cluster hardware resources, but still need to segregate access to the applications. Collections should be designed to map to the organizational structure desired, in this case the two application teams.</p>
+<p>Collections are implemented in UCP through the use of Docker labels. All resources within a given collection are labeled with the collection, /production/mobile for instance.</p>
+<p>Collections are groupings of objects within UCP. A collection can be made up of one or many of nodes, stacks, containers, services, volumes, networks, secrets, or configs — or it can hold other collections.</p>
+<p>To associate a node or a stack or any resource with a collection, that resource should share the label com.docker.ucp.access.label with the collection.</p>
+<p>A resource can be associated with zero or multiple collections, and a collection can have zero or multiple resources or other child collections in it. Collections within collections allow the structuring of resource objects in a hierarchical nature and can significantly simplify access control. Access provided at a top level collection is inherited by all its children, including any child collections.</p>
+<h6 id="ldap">LDAP</h6>
+<p>Docker UCP integrates with LDAP directory services, so that you can manage users and groups from your organization’s directory and it will automatically propagate that information to UCP and DTR.</p>
+<p>UCP services include a component called ucp-auth-api, which is the centralized service for identity and authentication used by UCP and DTR.</p>
+<p>All UCP services are exposed using HTTPS, to ensure all communications between clients and UCP are encrypted.
+By default, this is done using self-signed TLS certificates that are not trusted by client tools like web browsers. So when you try to access UCP, your browser warns that it doesn’t trust UCP or that UCP has an invalid certificate. The same happens with other client tools.</p>
+<p>You can configure UCP to use your own TLS certificates, so that it is automatically trusted by your browser and client tools.</p>
+<h6 id="client-bundle">Client Bundle</h6>
+<p>A client bundle contains a private and public key pair that authorizes your requests in UCP.</p>
+<p>Using client certificate bundle on your local computer, you can use it to authenticate your requests.</p>
+<p>What is a client bundle?</p>
+<p>A client bundle is a group of certificates downloadable directly from the Docker Universal Control Plane (UCP) user interface within the admin section for “My Profile”.</p>
+<p>This allows you to authorize a remote Docker engine to a specific user account managed in Docker EE, absorbing all associated RBAC controls in the process. You can now execute docker swarm commands from your remote machine that take effect on the remote cluster.</p>
+<p>https://www.docker.com/blog/get-familiar-docker-enterprise-edition-client-bundles/</p>
+<h6 id="subjects">Subjects</h6>
+<p>A subject represents a user, team, or organization. A subject is granted a role for a collection of resources. These groups of users are the same across UCP and DTR making RBAC management across the entire software pipeline uniform.</p>
+<p><strong>User</strong> - A single user or system account that an authentication backend (AD/LDAP) has validated.</p>
+<p><strong>Team</strong> - A group of users that share a set of permissions defined in the team itself. A team exists only as part of an organization, and all team members are members of the organization. A team can exist in one organization only. Assign users to one or more teams and one or more organizations.</p>
+<p><strong>Organization</strong> - The largest organizational unit in Docker Enterprise. Organizations group together teams to provide broader scope to apply access policy against.</p>
+<p>Subjects are individual users or teams within an organization. Teams are typically backed by an LDAP/AD group or search filter. It is also possible to add users manually. But it is not possible to have a hybrid composition of users. In other words, the list of users within a team should be derived from a directory server (e.g. AD) or should be added manually, not both.</p>
+<h6 id="ucp-agent">ucp-agent</h6>
+<p>When you deploy UCP, it starts running a globally scheduled service called ucp-agent. This service monitors the node where it’s running and starts and stops UCP services, based on whether the node is a manager or a worker node.</p>
+<ul>
+<li>
+<p>Manager: the ucp-agent service automatically starts serving all UCP components, including the UCP web UI and data stores used by UCP. The ucp-agent accomplishes this by deploying several containers on the node.</p>
+</li>
+<li>
+<p>Worker: on worker nodes, the ucp-agent service starts serving a proxy service that ensures only authorized users and other UCP services can run Docker commands in that node.</p>
+</li>
+</ul>
+<h6 id="bundles">Bundles</h6>
+<p>A client bundle contains a private and public key pair that authorizes your requests in UCP. In order to authenticate your requests, you can download client certificate bundle to your local computer.</p>
+<p>UCP issues different types of certificates depending on the user:</p>
+<ul>
+<li>User certificate bundles: only allow running docker commands through a UCP manager node.</li>
+<li>Admin user certificate bundles: allow running docker commands on the Docker Engine of any node.</li>
+</ul>
+<h6 id="san">SAN</h6>
+<p>Using external certificates is recommended when integrating with a corporate environment. </p>
+<p>Using external, officially-signed certificates simplifies having to distribute internal Certificate Authority (CA) certificates. </p>
+<p>One best practice is to use the Certificate Authority for your organization. </p>
+<p>Reduce the number of certificates by adding multiple Subject Alternative Names (SANs) to a single certificate. </p>
+<p>This allows the certificate to be valid for multiple URLs. </p>
+<p>For example, you can set up a certificate for ucp.example.com, dtr.example.com, and all the underlying hostnames and IP addresses. </p>
+<p>One certificate/key pair makes deploying certs easier.</p>
+<h6 id="docker-cli">Docker CLI</h6>
+<p>To use the Docker CLI with UCP, download a client certificate bundle(zip) by using the UCP web UI.</p>
+<h6 id="grant">Grant</h6>
+<p>You can create by combining subject + role + resource set.</p>
+<p>A grant defines who has how much access to what resources. Each grant is a 1:1:1 mapping of subject, role, and resource set.</p>
+<p>For example, you can grant the “Prod Team” “Restricted Control” over services in the “/Production” collection.</p>
+<h6 id="x509-issue">x509 issue</h6>
+<p>When you are running a docker command, Docker attempts to verify that the certificate in use is signed by UCP's certificate authority and that the domain name or IP used to connect to UCP is listed as a subject alternative name (SAN) in the UCP certificate.</p>
+<p>If you see the following error “x509: certificate signed by unknown authority”, then Docker has not been provided with the ca certificate. To resolve this issue, use a UCP client bundle to connect to UCP from the CLI.</p>
+<h6 id="node-certificate-expiration">Node Certificate Expiration</h6>
+<p>Universal Control Plane's management plane uses a private CA and certificates for all internal communication. The client certificates are automatically rotated on a schedule, providing a strong method for reducing the effect of a compromised node. There is an option to reduce the default time interval of 90 days to a shorter interval, however shorter intervals do add stress to the UCP cluster. To adjust the certificate rotation schedule, go to Admin -&gt; Admin Settings -&gt; Swarm and scroll down.</p>
+<h6 id="teams-permission">Team's permission</h6>
+<p>Permissions are cumulative. For example, if you have Write permissions, you automatically have Read permissions:
+- Read access allows users to view, search, and pull a private repository in the same way as they can a public repository.
+- Write access allows users to push to repositories on Docker Hub.
+- Admin access allows users to modify the repositories “Description”, “Collaborators” rights, “Public/Private” visibility, and “Delete”.</p>
+<h6 id="rbac">RBAC</h6>
+<p>UCP has role-based access control (RBAC), so that you can control who can access and make changes to your cluster and applications.</p>
+<p>Using the UI for Docker Enterprise of Docker Universal Control Plane (UCP), you authorize users to view, edit, and use cluster resources by granting role-based permissions against resource sets.</p>
+<p>To authorize access to cluster resources across your organization, UCP administrators might take the following high-level steps:
+- Add and configure subjects (users, teams, and service accounts).
+- Define custom roles (or use defaults) by adding permitted operations per type of resource.
+- Group cluster resources into resource sets of Swarm collections or Kubernetes namespaces.
+- Create grants by combining subject + role + resource set.</p>
+<h6 id="roles">roles</h6>
+<p>The default roles in UCP are None, View Only, Restricted Control, Scheduler, and Full Control.</p>
+<p>Each of these roles have a set of operations that define the permissions associated with the role. Additional custom roles can be defined by combining a unique set of permissions. Custom roles can be leveraged to accommodate fine-grained access control as required for certain organizations and security controls.</p>
+<h6 id="backup">Backup</h6>
+<p>Backups contain UCP configuration metadata to re-create configurations such as Administration Settings values such as LDAP and SAML, and RBAC configurations (Collections, Grants, Roles, User, and more):</p>
+<p>The following example shows how to create a UCP backup on a manager node, encrypt it by using a passphrase, decrypt it, verify its contents, and store it locally on the node at /tmp/mybackup.tar:</p>
+<pre><code>$ docker container run \
+--rm \
+--log-driver none \
+--name ucp \
+--volume /var/run/docker.sock:/var/run/docker.sock \
+--volume /tmp:/backup \
+docker/ucp:3.2.6 backup \
+--file mybackup.tar \
+--passphrase &quot;secret12chars&quot; \
+--include-logs=false
+</code></pre>
+<p>Here, the “docker/ucp” represents a docker image, “backup” is the command to execute.</p>
+<h6 id="_ping">#_ping</h6>
+<p>You can use the https://<ucp-manager-url>/_ping endpoint to check the health of a single UCP manager node.</p>
+<p>When you access this endpoint, the UCP manager validates that all its internal components are working, and returns one of the following HTTP error codes:</p>
+<ul>
+<li>
+<p>200, if all components are healthy</p>
+</li>
+<li>
+<p>500, if one or more components are not healthy</p>
+</li>
+</ul>
+<h6 id="sso-with-ucp">SSO with UCP</h6>
+<p>To only authenticate once, you can configure DTR to have single sign-on (SSO) with UCP.</p>
+<p>Users are shared between UCP and DTR by default, but the applications have separate browser-based interfaces which require authentication.</p>
+<p>When installing DTR, pass --dtr-external-url <url> to enable SSO.</p>
+<p>You can also enable single sign-on from the command line by reconfiguring your DTR.</p>
+<p>To do so, run the following:</p>
+<pre><code>docker run --rm -it \
+docker/dtr:2.7.6 reconfigure \
+--dtr-external-url dtr.example.com \ 
+…
+</code></pre>
+<h6 id="which-role-should-be-set-in-ucp-for-the-dba-team-to-allow-them-to-create-their-own-volumes-view-only">Which role should be set in UCP for the DBA team to allow them to create their own volumes? View Only</h6>
+<p>If the type of orchestrator is changed, the existing workload will not migrate to the new orchestrator automatically.</p>
+<pre><code>docker node update \ --label-add com.docker.ucp.orchestrator.swarm=true
+</code></pre>
+<p>Ucp-agent - core component of UCP</p>
+<p>ucp-dsinfo - Docker system information collection script to assist with troubleshooting</p>
+<p>TCP 179 port for managers, workers</p>
+<h6 id="commands-is-used-to-access-audit-logs-of-universal-control-plane">commands is used to access audit logs of Universal Control Plane</h6>
+<pre><code>docker logs ucp-controller
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../dtr/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Trust Registry" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Docker Trust Registry
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../Storage/configure-device-mapper/" class="md-footer__link md-footer__link--next" aria-label="Next: Configure Devicemapper" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Configure Devicemapper
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>

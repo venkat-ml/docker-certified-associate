@@ -1,0 +1,1168 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Commands - DCA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#find-port-of-a-container" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DCA" class="md-header__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Commands
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DCA" class="md-nav__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DCA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../install-docker/" class="md-nav__link">
+        Install Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dockerd/" class="md-nav__link">
+        Dockerd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Commands
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Commands
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#find-port-of-a-container" class="md-nav__link">
+    Find port of a container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-network" class="md-nav__link">
+    docker network
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../probes/" class="md-nav__link">
+        Probes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DockerEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DockerEE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DockerEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/docker-hub/" class="md-nav__link">
+        Docker Hub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/ee/" class="md-nav__link">
+        Docker Enterprise Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/dct/" class="md-nav__link">
+        Docker Content Trust
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/dtr/" class="md-nav__link">
+        Docker Trust Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/ucp/" class="md-nav__link">
+        Universal Control Plane
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/configure-device-mapper/" class="md-nav__link">
+        Configure Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/devicemapper/" class="md-nav__link">
+        Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/volumes/" class="md-nav__link">
+        Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/docker-volumes/" class="md-nav__link">
+        Volumes Handson
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/Storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/storage-in-cluster/" class="md-nav__link">
+        Storage in a cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/image-cleanup/" class="md-nav__link">
+        Image Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/using-volumes-in-docker-containers/" class="md-nav__link">
+        Using Volumes in Docker Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/use-storage-volumes-with-docker-swarm/" class="md-nav__link">
+        Using Storage Volumes with Docker Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/apparmor/" class="md-nav__link">
+        AppArmor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/seccomp/" class="md-nav__link">
+        Seccomp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/ssl-certificate/" class="md-nav__link">
+        SSL Certificate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/bridge/" class="md-nav__link">
+        Bridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/external-dns/" class="md-nav__link">
+        External DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/swarm/" class="md-nav__link">
+        Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Practice
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Practice" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Practice
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_read/" class="md-nav__link">
+        To read
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#find-port-of-a-container" class="md-nav__link">
+    Find port of a container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-network" class="md-nav__link">
+    docker network
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Commands</h1>
+                
+                <pre><code class="language-bash">docker service ps       # to list the tasks
+
+docker service inspect  # to inspect the service for configuration details
+
+docker service update --publish-rm 80 my_web   # There is nothing like port in command line argument flags
+
+docker run -d --restart unless-stopped redis   # There is nothing like policy in command line argument flags
+
+docker node update --label-add
+
+docker node update --label-rm
+</code></pre>
+<p>There are no volumes for services.. We can specify mount using --mount flag.</p>
+<p>The type of mount can be either volume, bind, tmpfs, or npipe. Defaults to volume if no type is specified.</p>
+<pre><code class="language-bash">docker build
+docker build [OPTIONS] PATH | URL | -
+--file , -f   Name of the Dockerfile (Default is 'PATH/Dockerfile')
+</code></pre>
+<pre><code class="language-bash">docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]
+--label , -l
+--publish , -p
+--tty , -t
+docker service scale &lt;SERVICE-ID&gt;=&lt;NUMBER-OF-TASKS&gt;
+Scale can only be used with replicated service
+docker service rollback [OPTIONS] SERVICE
+docker service update --rollback SERVICE
+docker service update --mount-add SERVICE
+docker service update --publish-add SERVICE
+docker service update --network-add SERVICE
+docker service update --placement-pref-add SERVICE
+docker service update --label-add SERVICE
+docker service update --update-delay 30s redis
+</code></pre>
+<pre><code class="language-bash">$ docker service create \
+--name my-service \
+--replicas 3 \
+--mount type=volume,source=my-volume,destination=/path/in/container \
+nginx:alpine
+</code></pre>
+<p>Examples of services might include an HTTP server, a database, or any other type of executable program that you wish to run in a <strong>distributed</strong> environment.</p>
+<pre><code class="language-bash">docker service create --constraint-add
+
+docker service create --constraint-rm
+
+docker service create --placement-pref-add
+
+docker service create --placement-pref-rm
+
+docker service update --publish-add
+
+docker service update --publish-rm
+
+
+docker service rm SERVICE [SERVICE...]
+docker inspect [OPTIONS] NAME|ID [NAME|ID...]
+
+Docker inspect provides detailed information on constructs controlled by Docker.
+By default, docker inspect will render results in a JSON array.
+</code></pre>
+<p>Sometimes, such as planned maintenance times, you need to set a node to DRAIN availability.</p>
+<p>DRAIN availability prevents a node from receiving new tasks from the swarm manager.</p>
+<p>It also means the manager stops tasks running on the node and launches replica tasks on a node with ACTIVE availability.</p>
+<pre><code class="language-bash">docker service create \
+    --name nginx-workers-only \
+    --constraint node.role==worker \
+    nginx
+</code></pre>
+<p><strong>docker service scale</strong> 
+- can scale up or down one or multiple services
+- can only work on replicated services</p>
+<pre><code class="language-bash">docker service scale backend=3 frontend=5
+
+docker service ls
+</code></pre>
+<p>Node can only be drained for maintanence</p>
+<pre><code class="language-bash">docker node update --availability drain node-1
+
+docker node inspect self
+</code></pre>
+<p>Placement prefs allow you to "spread" your replicas across nodes with certain tags, choosing to put the replicas as much "diverse" as possible.</p>
+<p>Constraints will constrain (limit) the replicas to those nodes that match the constraint.</p>
+<pre><code class="language-bash">docker service create \
+  --replicas 2 \
+  --name webserver \
+  --placement-pref 'spread=node.labels.datacenter' \
+  mywebservice:production
+</code></pre>
+<pre><code class="language-bash">docker service create \
+  --constraint 'node.labels.disk == ssd' \
+  myreporter:latest
+</code></pre>
+<pre><code class="language-json">docker network create -d overlay my-overlay
+Overlay network can be created from Swarm manager only, not from worker nodes
+</code></pre>
+<p><strong>Tip:</strong>
+There is nothing like --set in docker commandline arguments</p>
+<p><strong>Tip:</strong>
+There is nothing like --filter in docker inspect, it is always --format</p>
+<p><strong>Tip:</strong>
+There is nothing like docker xxx info.. There is only <em><strong>docker (system) info</strong></em></p>
+<p><strong>Tip:</strong>
+There is nothing like <em>docker list</em></p>
+<p><strong>Tip:</strong>
+There is nothing like --add, --set, --custom</p>
+<p><strong>Tip:</strong>
+There is nothing like --networks or --list</p>
+<p><strong>Tip:</strong>
+There is nothing like --ignore-tls</p>
+<p><strong>DTR image deletion</strong></p>
+<p>DTR only allows deleting images if the image has not been signed. You first need to delete all the trust data associated with the image before you are able to delete the image.</p>
+<p><strong>HEALTHCHECK</strong></p>
+<p>The HEALTHCHECK instruction has two forms:</p>
+<p>HEALTHCHECK [OPTIONS] CMD command (check container health by running a command inside the container)
+HEALTHCHECK NONE (disable any healthcheck inherited from the base image)
+The HEALTHCHECK instruction tells Docker how to test a container to check that it is still working. This can detect cases such as a web server that is stuck in an infinite loop and unable to handle new connections, even though the server process is still running.</p>
+<p>When a container has a healthcheck specified, it has a health status in addition to its normal status. This status is initially starting. Whenever a health check passes, it becomes healthy (whatever state it was previously in). After a certain number of consecutive failures, it becomes unhealthy.</p>
+<p><strong>Best Practice</strong></p>
+<p>The FROM instruction initializes a new build stage and sets the Base Image for subsequent instructions.</p>
+<p>As such, a valid Dockerfile must start with a FROM instruction.</p>
+<p>ARG is the only instruction that may precede FROM in the Dockerfile.</p>
+<p>For example:</p>
+<p>ARG CODE_VERSION=latest
+FROM base:${CODE_VERSION}</p>
+<p><strong>Best Practice</strong></p>
+<p>There can only be one CMD instruction in a Dockerfile. If you list more than one CMD then only the last CMD will take effect.</p>
+<p>The main purpose of a CMD is to provide defaults for an executing container.</p>
+<p><strong>Build context is different from Dockerfile</strong></p>
+<p>The docker build command builds an image from a Dockerfile and a context.</p>
+<p>The build’s context is the set of files at a specified location PATH or URL. The PATH is a directory on your local filesystem. The URL is a Git repository location.</p>
+<p>A context is processed recursively. So, a PATH includes any subdirectories and the URL includes the repository and its submodules.</p>
+<p>This example shows a build command that uses the current directory as context:</p>
+<pre><code class="language-bash">$ docker build .
+Sending build context to Docker daemon  6.51 MB
+...
+</code></pre>
+<p>You use the -f flag with docker build to point to a Dockerfile anywhere in your file system.</p>
+<pre><code class="language-bash">$ docker build -f /path/to/a/Dockerfile .
+</code></pre>
+<p>The build is run by the Docker daemon. The first thing a build process does is send the entire context (recursively) to the daemon.</p>
+<p>In most cases, it’s best to start with an empty directory as context and keep your Dockerfile in that directory. Add only the files needed for building the Dockerfile.</p>
+<p>https://docs.docker.com/engine/reference/builder/</p>
+<p><strong>To show untagged images, or dangling, use:</strong></p>
+<pre><code class="language-bash">docker images --filter &quot;dangling=true&quot;
+</code></pre>
+<p><strong>DTR Backup Process</strong></p>
+<p><em>DTR content backed-up</em></p>
+<p>· Configurations - DTR settings and cluster configurations</p>
+<p>· Repository metadata - Metadata such as image architecture, repositories, images deployed, and size</p>
+<p>· Access control to repos and images - Data about who has access to which images and repositories</p>
+<p>· Notary data - Signatures and digests for images that are signed</p>
+<p>· Scan results - Information about vulnerabilities in your images</p>
+<p>· Certificates and keys - Certificates, public keys, and private keys that are used for mutual TLS communication</p>
+<p><em>DTR content NOT backed-up</em></p>
+<p>· Image content - The images you push to DTR. This can be stored on the file system of the node running DTR, or other storage system, depending on the configuration. Needs to be backed up separately, depends on DTR configuration</p>
+<p>· Users, orgs, teams - Create a UCP backup to back up this data</p>
+<p>· Vulnerability database - Can be redownloaded after a restore</p>
+<p><strong>Logging Mechanism</strong></p>
+<p>Docker provides two modes for delivering messages from the container to the log driver:</p>
+<p>· (default) direct, blocking delivery from container to driver</p>
+<p>· non-blocking delivery that stores log messages in an intermediate per-container ring buffer for consumption by driver</p>
+<p>https://docs.docker.com/config/containers/logging/configure/#configure-the-delivery-mode-of-log-messages-from-container-to-log-driver</p>
+<p><strong>Start the daemon manually</strong></p>
+<p>If you don’t want to use a system utility to manage the Docker daemon, or just want to test things out, you can manually run it using the dockerd command. You may need to use sudo, depending on your operating system configuration.</p>
+<p>When you start Docker this way, it runs in the foreground and sends its logs directly to your terminal.</p>
+<pre><code class="language-bash">$ dockerd
+INFO[0000] +job init_networkdriver()
+INFO[0000] +job serveapi(unix:///var/run/docker.sock)
+INFO[0000] Listening for HTTP on unix (/var/run/docker.sock)
+To stop Docker when you have started it manually, issue a Ctrl+C in your terminal
+</code></pre>
+<p>In Docker swarm, traffic can be routed to services based on hostname - Swarm Layer7 routing</p>
+<p>A stack is a collection of services that run on Swarm.</p>
+<p>Backing up data from one manager node is enough in a UCP.</p>
+<p>.dockerignore available both in community and enterprise edition.</p>
+<p>Any 2 processes running on the same host cannot bind to the same port</p>
+<p><strong>Configuring default address pools🔗</strong></p>
+<p>By default Docker Swarm uses a default address pool 10.0.0.0/8 for global scope (overlay) networks. Every network that does not have a subnet specified will have a subnet sequentially allocated from this pool. In some circumstances it may be desirable to use a different default IP address pool for networks.</p>
+<p>Docker allocates subnet addresses from the address ranges specified by the --default-addr-pool option. For example, a command line option --default-addr-pool 10.10.0.0/16 indicates that Docker will allocate subnets from that /16 address range. If --default-addr-pool-mask-len were unspecified or set explicitly to 24, this would result in 256 /24 networks of the form 10.10.X.0/24</p>
+<ul>
+<li>
+<p>Image signing and Security Scanning are part of DTR</p>
+</li>
+<li>
+<p>If key is compromised, then rotate the key in </p>
+</li>
+</ul>
+<pre><code>docker swarm init --advertise-addr &lt;MANAGER-IP&gt;
+docker swarm join-token [OPTIONS] (worker|manager)
+docker swarm leave
+</code></pre>
+<h6 id="find-port-of-a-container">Find port of a container</h6>
+<pre><code>docker [s --filter 'name=web'
+
+docker port web
+
+docker inspect --format '{{.NetworkSettings.Ports}}' web
+
+</code></pre>
+<h6 id="docker-network">docker network</h6>
+<p>To manage networks, you can use:</p>
+<pre><code>docker network COMMAND
+</code></pre>
+<p>To display detailed information on one or more networks you can use:</p>
+<pre><code>docker network inspect [OPTIONS] NETWORK [NETWORK...]
+</code></pre>
+<p>https://docs.docker.com/engine/reference/commandline/network_inspect/</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../dockerd/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Dockerd" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Dockerd
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../kubernetes/" class="md-footer__link md-footer__link--next" aria-label="Next: Kubernetes" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Kubernetes
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>

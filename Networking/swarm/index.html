@@ -1,0 +1,1507 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Swarm - DCA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker-swarm" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DCA" class="md-header__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Swarm
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DCA" class="md-nav__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DCA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/install-docker/" class="md-nav__link">
+        Install Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/dockerd/" class="md-nav__link">
+        Dockerd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/commands/" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/probes/" class="md-nav__link">
+        Probes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DockerEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DockerEE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DockerEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/docker-hub/" class="md-nav__link">
+        Docker Hub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/ee/" class="md-nav__link">
+        Docker Enterprise Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/dct/" class="md-nav__link">
+        Docker Content Trust
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/dtr/" class="md-nav__link">
+        Docker Trust Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../DockerEE/ucp/" class="md-nav__link">
+        Universal Control Plane
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/configure-device-mapper/" class="md-nav__link">
+        Configure Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/devicemapper/" class="md-nav__link">
+        Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/volumes/" class="md-nav__link">
+        Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/docker-volumes/" class="md-nav__link">
+        Volumes Handson
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/Storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/storage-in-cluster/" class="md-nav__link">
+        Storage in a cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/image-cleanup/" class="md-nav__link">
+        Image Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/using-volumes-in-docker-containers/" class="md-nav__link">
+        Using Volumes in Docker Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/use-storage-volumes-with-docker-swarm/" class="md-nav__link">
+        Using Storage Volumes with Docker Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/apparmor/" class="md-nav__link">
+        AppArmor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/seccomp/" class="md-nav__link">
+        Seccomp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/ssl-certificate/" class="md-nav__link">
+        SSL Certificate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bridge/" class="md-nav__link">
+        Bridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../external-dns/" class="md-nav__link">
+        External DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Swarm
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Swarm
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-swarm" class="md-nav__link">
+    Docker Swarm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-service-discovery" class="md-nav__link">
+    Docker Service Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-mesh-vs-host-mode" class="md-nav__link">
+    Routing Mesh vs Host Mode
+  </a>
+  
+    <nav class="md-nav" aria-label="Routing Mesh vs Host Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialise-a-swarm" class="md-nav__link">
+    Initialise a swarm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autolock" class="md-nav__link">
+    autolock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-swarm-init" class="md-nav__link">
+    docker swarm init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pki" class="md-nav__link">
+    PKI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotating-the-ca-certificate" class="md-nav__link">
+    Rotating the CA certificate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-plane-security" class="md-nav__link">
+    Control Plane Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-swarm" class="md-nav__link">
+    Backup swarm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-worker-node" class="md-nav__link">
+    join worker node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-force-new-cluster" class="md-nav__link">
+    --force-new-cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routing-mesh" class="md-nav__link">
+    Routing Mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-concept-is-responsible-for-managing-external-to-internal-load-balancing-for-docker-swarm-services" class="md-nav__link">
+    Which concept is responsible for managing external to internal load balancing for Docker Swarm services?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-of-the-following-is-true-about-secrets" class="md-nav__link">
+    Which of the following is true about secrets?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encrypt-traffic-on-an-overlay-network" class="md-nav__link">
+    Encrypt traffic on an overlay network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-new-ca-certificate" class="md-nav__link">
+    generate new CA certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Practice
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Practice" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Practice
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_read/" class="md-nav__link">
+        To read
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-swarm" class="md-nav__link">
+    Docker Swarm
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-service-discovery" class="md-nav__link">
+    Docker Service Discovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#routing-mesh-vs-host-mode" class="md-nav__link">
+    Routing Mesh vs Host Mode
+  </a>
+  
+    <nav class="md-nav" aria-label="Routing Mesh vs Host Mode">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#initialise-a-swarm" class="md-nav__link">
+    Initialise a swarm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#autolock" class="md-nav__link">
+    autolock
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-swarm-init" class="md-nav__link">
+    docker swarm init
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pki" class="md-nav__link">
+    PKI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rotating-the-ca-certificate" class="md-nav__link">
+    Rotating the CA certificate
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control-plane-security" class="md-nav__link">
+    Control Plane Security
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backup-swarm" class="md-nav__link">
+    Backup swarm
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#join-worker-node" class="md-nav__link">
+    join worker node
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-force-new-cluster" class="md-nav__link">
+    --force-new-cluster
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#routing-mesh" class="md-nav__link">
+    Routing Mesh
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basics" class="md-nav__link">
+    Basics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-concept-is-responsible-for-managing-external-to-internal-load-balancing-for-docker-swarm-services" class="md-nav__link">
+    Which concept is responsible for managing external to internal load balancing for Docker Swarm services?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#which-of-the-following-is-true-about-secrets" class="md-nav__link">
+    Which of the following is true about secrets?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encrypt-traffic-on-an-overlay-network" class="md-nav__link">
+    Encrypt traffic on an overlay network
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-new-ca-certificate" class="md-nav__link">
+    generate new CA certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Swarm</h1>
+                
+                <h6 id="docker-swarm">Docker Swarm</h6>
+<p>By default, Docker Swarm uses a default address pool 10.0.0.0/8 for global scope (overlay) networks.</p>
+<p>Every network that does not have a subnet specified will have a subnet sequentially allocated from this pool. In some circumstances it may be desirable to use a different default IP address pool for networks.</p>
+<p>For example, if the default 10.0.0.0/8 range conflicts with already allocated address space in your network, then it is desirable to ensure that networks use a different range without requiring Swarm users to specify each subnet with the --subnet command.</p>
+<p>https://docs.docker.com/engine/swarm/swarm-mode/#configuring-default-address-pools</p>
+<ul>
+<li>
+<p><strong>Docker Swarm Task states</strong></p>
+<ul>
+<li>Create a service by using docker service create.</li>
+<li>The request goes to a Docker manager node.</li>
+<li>The Docker manager node schedules the service to run on particular nodes.</li>
+<li>Each service can start multiple tasks.</li>
+<li>Each task has a life cycle, with states like NEW, PENDING, and COMPLETE.</li>
+</ul>
+</li>
+<li>
+<p>There is no limit on the number of manager nodes.</p>
+</li>
+</ul>
+<p>The decision about how many manager nodes to implement is a trade-off between performance and fault-tolerance.</p>
+<p>Adding manager nodes to a swarm makes the swarm more fault-tolerant. </p>
+<p>However, additional manager nodes reduce write performance because more nodes must acknowledge proposals to update the swarm state. This means more network round-trip traffic.</p>
+<ul>
+<li>
+<p><strong>Raft consensus in swarm mode</strong></p>
+<p>The reason why Docker swarm mode is using a consensus algorithm is to make sure that all the manager nodes that are in charge of managing and scheduling tasks in the cluster, are storing the same consistent state.</p>
+<p>Raft tolerates up to (N-1)/2 failures and requires a majority or quorum of (N/2)+1 members to agree on values proposed to the cluster.</p>
+</li>
+</ul>
+<h6 id="docker-service-discovery">Docker Service Discovery</h6>
+<p>Docker uses embedded DNS to provide service discovery for containers running on a single Docker engine and tasks running in a Docker swarm.</p>
+<p>The Docker engine checks if the DNS query belongs to a container or service on each network that the requesting container belongs to. If it does, then the Docker engine looks up the IP address that matches the name of a container, task, or service in a key-value store and returns that IP or service Virtual IP (VIP) back to the requester. Here, all nodes participate in a network called routing mesh.</p>
+<p>https://success.docker.com/article/ucp-service-discovery-swarm</p>
+<p>DNS round robin (DNS RR) load balancing is another load balancing option for services (configured with --endpoint-mode dnsrr). In DNS RR mode a VIP is not created for each service. The Docker DNS server resolves a service name to individual container IPs in round robin fashion.</p>
+<p>https://success.docker.com/article/networking</p>
+<p>To use an external load balancer without the routing mesh, set --endpoint-mode to dnsrr instead of the default value of vip.</p>
+<p>In this case, there is not a single virtual IP. Instead, Docker sets up DNS entries for the service such that a DNS query for the service name returns a list of IP addresses, and the client connects directly to one of these. You are responsible for providing the list of IP addresses and ports to your load balancer. See Configure service discovery.</p>
+<p>https://docs.docker.com/engine/swarm/ingress/#without-the-routing-mesh</p>
+<p>Services using the routing mesh are running in virtual IP (VIP) mode. Even a service running on each node (by means of the --mode global flag) uses the routing mesh. When using the routing mesh, there is no guarantee about which Docker node services client requests.</p>
+<p>To bypass the routing mesh, you can start a service using DNS Round Robin (DNSRR) mode, by setting the --endpoint-mode flag to dnsrr.</p>
+<p>https://docs.docker.com/network/overlay/#bypass-the-routing-mesh-for-a-swarm-service</p>
+<h5 id="routing-mesh-vs-host-mode">Routing Mesh vs Host Mode</h5>
+<p>When you create a swarm service, you can publish that service’s ports to hosts outside the swarm in two ways:</p>
+<ul>
+<li>
+<p>You can rely on the routing mesh. When you publish a service port, the swarm makes the service accessible at the target port on every node, regardless of whether there is a task for the service running on that node or not. This is less complex and is the right choice for many types of services.</p>
+</li>
+<li>
+<p>You can publish a service task’s port directly on the swarm node where that service is running. This feature is available in Docker 1.13 and higher. This bypasses the routing mesh and provides the maximum flexibility, including the ability for you to develop your own routing framework. However, you are responsible for keeping track of where each task is running and routing requests to the tasks, and load-balancing across the nodes.</p>
+</li>
+</ul>
+<p>By default, services are using the routing mesh which makes the service accessible at the published port on every swarm node. When a user or process connects to a service, any worker node running a service task may respond.</p>
+<p>To publish a service’s port directly on the node where it is running, use the mode=host option to the --publish flag.</p>
+<p>For example:</p>
+<pre><code>$ docker service create \
+  --mode global \
+  --publish mode=host,target=80,published=8080 \
+  --name=nginx \
+  nginx:latest
+</code></pre>
+<p>https://docs.docker.com/engine/swarm/services/#publish-ports</p>
+<p><strong>Concepts</strong></p>
+<ul>
+<li>
+<p>By default Docker Swarm uses a default address pool 10.0.0.0/8 for global scope (overlay) networks.</p>
+</li>
+<li>
+<p>If --default-addr-pool-mask-len were unspecified or set explicitly to 24, this would result in 256 /24 networks of the form 10.10.X.0/24.</p>
+</li>
+<li>
+<p>Demote manager node to worker node and docker swarm leave</p>
+</li>
+<li>
+<p>Lock your swam to protect its encryption key</p>
+</li>
+<li>
+<p>You don’t need to unlock the swarm when a new node joins the swarm, because the key is propagated to it over mutual TLS.</p>
+</li>
+<li>
+<p>When Docker restarts, you must unlock the swarm first, using a key encryption key generated by Docker when the swarm was locked. You can rotate this key encryption key at any time.</p>
+</li>
+<li>
+<p>When you rotate the unlock key, keep a record of the old key around for a few minutes, so that if a manager goes down before it gets the new key, it may still be unlocked with the old one.</p>
+</li>
+<li>
+<p>Worker node can join the cluster without the need of autolock key</p>
+</li>
+<li>
+<p>A node is an instance of the Docker engine participating in the swarm. </p>
+</li>
+<li>
+<p>Setting a node to DRAIN does not remove standalone containers from that node, such as those created with docker run, docker-compose up, or the Docker Engine API.</p>
+</li>
+<li>
+<p>A node’s status, including DRAIN, only affects the node’s ability to schedule swarm service workloads.
+    https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/</p>
+</li>
+<li>
+<p>DRAIN availability prevents a node from receiving new tasks from the swarm manager. It also means the manager stops tasks running on the node and launches replica tasks on a node with ACTIVE availability.
+  https://docs.docker.com/engine/swarm/swarm-tutorial/drain-node/</p>
+</li>
+<li>
+<p>Sometimes, such as planned maintenance times, you need to set a node to DRAIN availability.</p>
+</li>
+<li>
+<p>DRAIN availability prevents a node from receiving new tasks from the swarm manager.</p>
+</li>
+<li>
+<p>It also means the manager stops tasks running on the node and launches replica tasks on a node with ACTIVE availability.</p>
+</li>
+</ul>
+<p>Docker manager nodes store the swarm state and manager logs in the /var/lib/docker/swarm/ directory.</p>
+<p>Usually, on Linux distributions:</p>
+<p>"/etc" is used for configurations (.conf files etc). here you find all the configs and settings for your system.</p>
+<p>"/var" is usually used for log files, 'temporary' files (like mail spool, printer spool, etc), databases, and all other data not tied to a specific user. Logs are usually in "/var/log", databases in "/var/lib" (mysql - "/var/lib/mysql"), etc.</p>
+<p><strong>Ingress</strong></p>
+<p>When you create a swarm service and do not connect it to a user-defined overlay network, it connects to the ingress network by default.</p>
+<p>The ingress network is created without the --attachable flag, which means that only swarm services can use it, and not standalone containers.
+You can connect standalone containers to user-defined overlay networks which are created with the --attachable flag.</p>
+<p>https://docs.docker.com/network/overlay/#attach-a-standalone-container-to-an-overlay-network</p>
+<p>The routing mesh allows all the swarm nodes to accept connections on the services published ports. When any swarm node receives traffic destined to the published TCP/UDP port of a running service, it forwards the traffic to the service's VIP using a pre-defined overlay network called ingress. The ingress network behaves similarly to other overlay networks, but its sole purpose is to transport mesh routing traffic from external clients to cluster services. It uses the same VIP-based internal load balancing as described in the previous section.</p>
+<p>https://success.docker.com/article/ucp-service-discovery-swarm#interlockproxyusageexamples</p>
+<p>Docker Engine swarm mode makes it easy to publish ports for services to make them available to resources outside the swarm.</p>
+<p>All nodes participate in an ingress routing mesh.</p>
+<p>The routing mesh enables each node in the swarm to accept connections on published ports for any service running in the swarm, even if there’s no task running on the node.</p>
+<p>The routing mesh routes all incoming requests to published ports on available nodes to an active container.</p>
+<p>https://docs.docker.com/engine/swarm/ingress/</p>
+<h6 id="initialise-a-swarm">Initialise a swarm</h6>
+<p>When you initialize a swarm or join a Docker host to an existing swarm, two new networks are created on that Docker host:
+- an overlay network called ingress, which handles control and data traffic related to swarm services. When you create a swarm service and do not connect it to a user-defined overlay network, it connects to the ingress network by default.
+- a bridge network called docker_gwbridge, which connects the individual Docker daemon to the other daemons participating in the swarm.</p>
+<h6 id="autolock">autolock</h6>
+<p>Docker 1.13 introduces the ability to protect the mutual TLS encryption key and the key used to encrypt and decrypt secrets, by allowing you to take ownership of these keys and to require manual unlocking of your managers. This feature is called autolock.</p>
+<p>When Docker restarts, you must unlock the swarm first, using a key encryption key generated by Docker when the swarm was locked. You can rotate this key encryption key at any time.</p>
+<p>To enable autolock on an existing swarm, set the autolock flag to true.
+docker swarm update --autolock=true
+https://docs.docker.com/engine/swarm/swarm_manager_locking/#enable-or-disable-autolock-on-an-existing-swarm</p>
+<h6 id="secrets">Secrets</h6>
+<p>Sensitive information to containers running on a Swarm are normally stored in a secret.</p>
+<p>A secret (usually containing credentials, certificates, and other private information) is provided to service at runtime. The secret is saved in the Raft logs.</p>
+<p>The Raft logs used by swarm managers are encrypted on disk by default.</p>
+<p>When Docker restarts, both the TLS key used to encrypt communication among swarm nodes, and the key used to encrypt and decrypt Raft logs on disk, are loaded into each manager node’s memory.</p>
+<p>Docker 1.13 introduces the ability to protect the mutual TLS encryption key and the key used to encrypt and decrypt Raft logs at rest, by allowing you to take ownership of these keys and to require manual unlocking of your managers. This feature is called autolock.</p>
+<p>When Docker restarts, you must unlock the swarm first, using a key encryption key generated by Docker when the swarm was locked. You can rotate this key encryption key at any time.</p>
+<p>When you initialize a new swarm, you can use the --autolock flag to enable autolocking of swarm manager nodes when Docker restarts.</p>
+<pre><code>docker swarm init --autolock
+</code></pre>
+<p>To enable autolock on an existing swarm, set the autolock flag to true.</p>
+<pre><code>docker swarm update --autolock=true
+</code></pre>
+<p>In terms of Docker Swarm services, a secret is a blob of data, such as a password, SSH private key, SSL certificate, or another piece of data that should not be transmitted over a network or stored unencrypted in a Dockerfile or in your application’s source code.
+https://docs.docker.com/engine/swarm/secrets/#about-secrets</p>
+<p>The command to create a secret from a file or standard input (STDIN) as content is:</p>
+<pre><code>docker secret create [OPTIONS] SECRET [file|-]
+</code></pre>
+<p>Since this is a cluster management command, it must be executed on a swarm manager node.</p>
+<p>https://docs.docker.com/engine/reference/commandline/secret_create/</p>
+<p>Note: After you create a secret, you cannot update it. You can only remove and re-create it, and you cannot remove a secret that a service is using.</p>
+<p>https://docs.docker.com/engine/swarm/secrets/#advanced-example-use-secrets-with-a-wordpress-service</p>
+<p>Secrets are encrypted during transit and at rest in a Docker swarm (The secret is stored in the Raft log, which is encrypted)</p>
+<p>A Docker secret is a blob of sensitive data that should not be transmitted over a network, such as:
+- Usernames and passwords
+- TLS certificates and keys
+- SSH keys
+- Other important data such as the name of a database or internal server
+- Generic strings or binary content (up to 500 kb in size)</p>
+<ul>
+<li>
+<p>Secret files with custom targets are not directly bind-mounted into Windows containers, since Windows does not support non-directory file bind-mounts. </p>
+</li>
+<li>
+<p>Instead, secrets for a container are all mounted in C:\ProgramData\Docker\internal\secrets (an implementation detail which should not be relied upon by applications) within the container. Symbolic links are used to point from there to the desired target of the secret within the container. The default target is C:\ProgramData\Docker\secrets.</p>
+</li>
+<li>
+<p>The location of the mount point within the container defaults to /run/secrets/<secret_name> in Linux containers, or C:\ProgramData\Docker\secrets in Windows containers. You can also specify a custom location.</p>
+</li>
+</ul>
+<p><strong>Add or remove secrets</strong></p>
+<p>Use the --secret-add or --secret-rm options add or remove a service’s secrets.</p>
+<p>For example:</p>
+<pre><code>docker service update \
+    --secret-rm mysql_password \
+    --secret-add source=mysql_password_v2,target=wp_db_password,mode=0400 \
+    wordpress
+
+</code></pre>
+<p>This triggers a rolling restart of the WordPress service and the new secret is used.</p>
+<p>The following example adds a secret named ssh-2 and removes ssh-1:</p>
+<pre><code>$ docker service update \
+    --secret-add source=ssh-2,target=ssh-2 \
+    --secret-rm ssh-1 \
+    Myservice
+</code></pre>
+<h6 id="docker-swarm-init">docker swarm init</h6>
+<p>When you create a swarm by running docker swarm init, Docker designates itself as a manager node. By default, the manager node generates a new root Certificate Authority (CA) along with a key pair, which are used to secure communications with other nodes that join the swarm.</p>
+<p>If you prefer, you can specify your own externally-generated root CA, using the --external-ca flag of the docker swarm init command.</p>
+<h6 id="pki">PKI</h6>
+<p>The swarm mode public key infrastructure (PKI) system built into Docker makes it simple to securely deploy a container orchestration system. The nodes in a swarm use mutual Transport Layer Security (TLS) to authenticate, authorize, and encrypt the communications with other nodes in the swarm.</p>
+<h6 id="rotating-the-ca-certificate">Rotating the CA certificate</h6>
+<p>In the event that a cluster CA key or a manager node is compromised, you can rotate the swarm root CA so that none of the nodes trust certificates signed by the old root CA anymore.</p>
+<p>Run docker swarm ca --rotate to generate a new CA certificate and key. If you prefer, you can pass the --ca-cert and --external-ca flags to specify the root certificate and to use a root CA external to the swarm. Alternately, you can pass the --ca-cert and --ca-key flags to specify the exact certificate and key you would like the swarm to use.</p>
+<h6 id="control-plane-security">Control Plane Security</h6>
+<p>Docker Swarm comes with integrated PKI. All managers and nodes in the Swarm have a cryptographically signed identity in the form of a signed certificate. All manager-to-manager and manager-to-node control communication is secured out of the box with TLS. There is no need to generate certs externally or set up any CAs manually to get end-to-end control plane traffic secured in Docker Swarm mode. Certificates are periodically and automatically rotated.</p>
+<h6 id="backup-swarm">Backup swarm</h6>
+<p>To backup the Swarm on Linux using Docker Engine &gt;= 17.03, you can use the following steps.</p>
+<p>Since this will need you to stop the engine of a manager, your cluster need to be healthy with at least 3 managers.
+1. Select a manager node to do the operation. Try not to choose the leader one in order to avoid a new election inside the cluster.</p>
+<ol>
+<li>
+<p>Optional: Store the Docker version to a variable for easy addition to your backup name.</p>
+</li>
+<li>
+<p>Stop the Docker Engine on the manager before backing up the data, so that no data is being changed during the backup.</p>
+</li>
+<li>
+<p>Backup the entire Swarm folder /var/lib/docker/swarm.</p>
+</li>
+<li>
+<p>Restart the manager Docker Engine.</p>
+</li>
+</ol>
+<p>https://success.docker.com/article/backup-restore-swarm-manager</p>
+<p>Docker manager nodes store the swarm state and manager logs in the /var/lib/docker/swarm/</p>
+<p>https://docs.docker.com/engine/swarm/admin_guide/#back-up-the-swarm</p>
+<p>"/etc" is used for configurations (.conf files etc). here you find all the configs and settings for your system.</p>
+<p>"/var" is usually used for log files, 'temporary' files (like mail spool, printer spool, etc), databases, and all other data not tied to a specific user. Logs are usually in "/var/log", databases in "/var/lib" (mysql - "/var/lib/mysql"), etc.</p>
+<p>https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard</p>
+<h6 id="join-worker-node">join worker node</h6>
+<p>The Docker Engine joins the swarm depending on the join-token you provide to the docker swarm join command.</p>
+<p>To retrieve the join command including the join token for worker nodes, run the following command on a manager node:</p>
+<pre><code>$ docker swarm join-token worker
+</code></pre>
+<p>To add a worker to this swarm, run the following command with the output from the previous command:</p>
+<pre><code>docker swarm join \
+--token SWMTKN-1-49nj1cmql0jkz5s954yi3oex3nedyz0fb0xx14ie39trti4wxv-8vxv8rssmk743ojnwacrr2e7c \
+192.168.99.100:2377
+</code></pre>
+<p>This node joined a swarm as a worker.</p>
+<h6 id="-force-new-cluster">--force-new-cluster</h6>
+<p>This flag forces an existing node that was part of a quorum that was lost to restart as a single node Manager without losing its data.</p>
+<h6 id="routing-mesh">Routing Mesh</h6>
+<p>By default, ports are published using ingress mode.</p>
+<p>This means that the swarm routing mesh makes the service accessible at the published port on every node regardless if there is a task for the service running on the node.</p>
+<p>However, if you set host mode explicitly, the port is only bound on nodes where the service is running, and a given port on a node can only be bound once. You can only set the publication mode using the long syntax.</p>
+<p>You can publish service ports to make them available externally to the swarm using the --publish flag.</p>
+<p>The --publish flag can take two different styles of arguments.</p>
+<p>The short version is positional and allows you to specify the published port and target port separated by a colon (:).</p>
+<pre><code>$ docker service create --name my_web --replicas 3 --publish 8080:80 nginx
+</code></pre>
+<p>Here, the published port is 8080 and the target port is of the container is 80.</p>
+<p>There is also a long format, which is easier to read and allows you to specify more options.</p>
+<pre><code>$ docker service create --name my_web --replicas 3 --publish published=8080,target=80 nginx
+</code></pre>
+<h6 id="basics">Basics</h6>
+<ul>
+<li>Global services provide high availability</li>
+<li>Draining a node will remove global service</li>
+<li>Replicated services can be stopped by keeping --replicas to 0</li>
+<li>Default swarm mode is replicated</li>
+<li>Swarm Backup </li>
+</ul>
+<p>a) Stop Docker Engine on any manager to ensure files are static.</p>
+<p>b) Copy the /var/lib/docker/swarm directory content for backing up Swarm.
+- Replicated services</p>
+<pre><code>c) They can be stopped using the Docker service update: --replicas 0 &lt;SERVICENAME&gt;.
+
+d) We will use Go templates to be able to provide unique resources, such as volumes or hostnames, inside containers to ensure all replicas use their own resources.
+</code></pre>
+<ul>
+<li>
+<p>Methods used to publish applications on Docker EE</p>
+<p>a) We can use Interlock.</p>
+<p>b) We will publish each application container.</p>
+<p>c) We can use the host mode to publish applications as if they were running directly at the host level.</p>
+</li>
+</ul>
+<h6 id="which-concept-is-responsible-for-managing-external-to-internal-load-balancing-for-docker-swarm-services">Which concept is responsible for managing external to internal load balancing for Docker Swarm services?</h6>
+<pre><code>a) Router Mesh
+</code></pre>
+<h6 id="which-of-the-following-is-true-about-secrets">Which of the following is true about secrets?</h6>
+<pre><code>a) They are ephemeral and deployed on on-memory filesystems.
+b) They are encrypted even for administrators, so they cannot be recovered from the control plane.
+c) If we need to change a secret, we need to create a new secret and update the service with this new one.
+</code></pre>
+<h6 id="encrypt-traffic-on-an-overlay-network">Encrypt traffic on an overlay network</h6>
+<p>All swarm service management traffic is encrypted by default, using the <strong>AES algorithm in GCM mode</strong>. Manager nodes in the swarm rotate the key used to encrypt gossip data every 12 hours.</p>
+<p>To encrypt application data as well, add --opt encrypted when creating the overlay network. This enables IPSEC encryption at the level of the vxlan. This encryption imposes a non-negligible performance penalty, so you should test this option before using it in production.</p>
+<p>When you enable overlay encryption, Docker creates IPSEC tunnels between all the nodes where tasks are scheduled for services attached to the overlay network. These tunnels also use the AES algorithm in GCM mode and manager nodes automatically rotate the keys every 12 hours.</p>
+<p>Do not attach Windows nodes to encrypted overlay networks.</p>
+<p>Overlay network encryption is not supported on Windows. If a Windows node attempts to connect to an encrypted overlay network, no error is detected but the node cannot communicate.</p>
+<h6 id="generate-new-ca-certificate">generate new CA certificate</h6>
+<p>commands is used to generate a new root CA certificate and root CA key for the swarm cluster?</p>
+<pre><code>docker swarm ca --rotate
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../external-dns/" class="md-footer__link md-footer__link--prev" aria-label="Previous: External DNS" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              External DNS
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../../to_read/" class="md-footer__link md-footer__link--next" aria-label="Next: To read" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              To read
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>

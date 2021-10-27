@@ -1,0 +1,2023 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Concepts - DCA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#to-create-a-tag-target_image-that-refers-to-source_image-use" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="DCA" class="md-header__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Concepts
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="DCA" class="md-nav__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DCA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="install-docker/" class="md-nav__link">
+        Install Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Concepts
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Concepts
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#to-create-a-tag-target_image-that-refers-to-source_image-use" class="md-nav__link">
+    To create a tag TARGET_IMAGE that refers to SOURCE_IMAGE use:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtr-immutable-tags" class="md-nav__link">
+    DTR - Immutable tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#healthcheck" class="md-nav__link">
+    Healthcheck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arg-vs-env" class="md-nav__link">
+    ARG vs ENV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    LABEL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-search" class="md-nav__link">
+    docker search
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    RUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-save" class="md-nav__link">
+    docker save
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-stage-builds" class="md-nav__link">
+    Multi stage builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-vs-image" class="md-nav__link">
+    Container vs Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info-vs-inspect" class="md-nav__link">
+    Info vs Inspect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcdockerdaemonjson" class="md-nav__link">
+    /etc/docker/daemon.json
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#varrundockersock" class="md-nav__link">
+    /var/run/docker.sock
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privileged-vs-unprivileged-containers" class="md-nav__link">
+    privileged vs unprivileged containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syslog" class="md-nav__link">
+    Syslog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificate-authentication" class="md-nav__link">
+    certificate authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-on-write-strategy" class="md-nav__link">
+    Copy-on-write strategy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-namespaces" class="md-nav__link">
+    Docker namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-mechanism" class="md-nav__link">
+    logging mechanism
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpuset-cpus" class="md-nav__link">
+    cpuset-cpus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-system-events" class="md-nav__link">
+    docker system events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabledisable-docker" class="md-nav__link">
+    enable/disable docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-groups" class="md-nav__link">
+    Control groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-cpus" class="md-nav__link">
+    --cpus=
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-m-or-memory" class="md-nav__link">
+    -m or --memory=
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-driver-modes" class="md-nav__link">
+    log driver modes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-default-ulimit" class="md-nav__link">
+    --default-ulimit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-registry" class="md-nav__link">
+    Secure registry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-image-import" class="md-nav__link">
+    docker image import
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-we-only-list-containers-created-from-an-alpine310-image" class="md-nav__link">
+    How do we only list containers created from an alpine:3.10 image?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-of-the-following-is-true-about-privileged-containers" class="md-nav__link">
+    Which of the following is true about privileged containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-logs" class="md-nav__link">
+    docker logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-container-logs-vs-docker-logs" class="md-nav__link">
+    docker container logs vs docker logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-run" class="md-nav__link">
+    docker run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-we-review-ports-published-for-a-container-named-webserver" class="md-nav__link">
+    How can we review ports published for a container named webserver?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-export" class="md-nav__link">
+    docker export
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-rmi-with-multiple-tags" class="md-nav__link">
+    docker rmi with multiple tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-update" class="md-nav__link">
+    docker update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-the-cgroup-for-a-given-container" class="md-nav__link">
+    Find the cgroup for a given container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    Configuration files🔗
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#antivirus-software-and-docker" class="md-nav__link">
+    Antivirus software and Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multistage-builds" class="md-nav__link">
+    Multistage Builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-service-create" class="md-nav__link">
+    docker service create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-task-state" class="md-nav__link">
+    View task state
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="dockerd/" class="md-nav__link">
+        Dockerd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="commands/" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="probes/" class="md-nav__link">
+        Probes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DockerEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DockerEE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DockerEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerEE/docker-hub/" class="md-nav__link">
+        Docker Hub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerEE/ee/" class="md-nav__link">
+        Docker Enterprise Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerEE/dct/" class="md-nav__link">
+        Docker Content Trust
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerEE/dtr/" class="md-nav__link">
+        Docker Trust Registry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../DockerEE/ucp/" class="md-nav__link">
+        Universal Control Plane
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/configure-device-mapper/" class="md-nav__link">
+        Configure Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/devicemapper/" class="md-nav__link">
+        Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/volumes/" class="md-nav__link">
+        Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/docker-volumes/" class="md-nav__link">
+        Volumes Handson
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/Storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/storage-in-cluster/" class="md-nav__link">
+        Storage in a cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/image-cleanup/" class="md-nav__link">
+        Image Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/using-volumes-in-docker-containers/" class="md-nav__link">
+        Using Volumes in Docker Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Storage/use-storage-volumes-with-docker-swarm/" class="md-nav__link">
+        Using Storage Volumes with Docker Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Security/apparmor/" class="md-nav__link">
+        AppArmor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Security/seccomp/" class="md-nav__link">
+        Seccomp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Security/ssl-certificate/" class="md-nav__link">
+        SSL Certificate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/bridge/" class="md-nav__link">
+        Bridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/external-dns/" class="md-nav__link">
+        External DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Networking/swarm/" class="md-nav__link">
+        Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Practice
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Practice" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Practice
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../to_read/" class="md-nav__link">
+        To read
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#to-create-a-tag-target_image-that-refers-to-source_image-use" class="md-nav__link">
+    To create a tag TARGET_IMAGE that refers to SOURCE_IMAGE use:
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtr-immutable-tags" class="md-nav__link">
+    DTR - Immutable tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#healthcheck" class="md-nav__link">
+    Healthcheck
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arg-vs-env" class="md-nav__link">
+    ARG vs ENV
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#label" class="md-nav__link">
+    LABEL
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-search" class="md-nav__link">
+    docker search
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run" class="md-nav__link">
+    RUN
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-save" class="md-nav__link">
+    docker save
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-stage-builds" class="md-nav__link">
+    Multi stage builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#container-vs-image" class="md-nav__link">
+    Container vs Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#info-vs-inspect" class="md-nav__link">
+    Info vs Inspect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#etcdockerdaemonjson" class="md-nav__link">
+    /etc/docker/daemon.json
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#varrundockersock" class="md-nav__link">
+    /var/run/docker.sock
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#privileged-vs-unprivileged-containers" class="md-nav__link">
+    privileged vs unprivileged containers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#syslog" class="md-nav__link">
+    Syslog
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#certificate-authentication" class="md-nav__link">
+    certificate authentication
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#copy-on-write-strategy" class="md-nav__link">
+    Copy-on-write strategy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image" class="md-nav__link">
+    Image
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-namespaces" class="md-nav__link">
+    Docker namespaces
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#logging-mechanism" class="md-nav__link">
+    logging mechanism
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cpuset-cpus" class="md-nav__link">
+    cpuset-cpus
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-system-events" class="md-nav__link">
+    docker system events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabledisable-docker" class="md-nav__link">
+    enable/disable docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#control-groups" class="md-nav__link">
+    Control groups
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-cpus" class="md-nav__link">
+    --cpus=
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-m-or-memory" class="md-nav__link">
+    -m or --memory=
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-driver-modes" class="md-nav__link">
+    log driver modes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#-default-ulimit" class="md-nav__link">
+    --default-ulimit
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#secure-registry" class="md-nav__link">
+    Secure registry
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-image-import" class="md-nav__link">
+    docker image import
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-do-we-only-list-containers-created-from-an-alpine310-image" class="md-nav__link">
+    How do we only list containers created from an alpine:3.10 image?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-of-the-following-is-true-about-privileged-containers" class="md-nav__link">
+    Which of the following is true about privileged containers?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-logs" class="md-nav__link">
+    docker logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-container-logs-vs-docker-logs" class="md-nav__link">
+    docker container logs vs docker logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-run" class="md-nav__link">
+    docker run
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-can-we-review-ports-published-for-a-container-named-webserver" class="md-nav__link">
+    How can we review ports published for a container named webserver?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-export" class="md-nav__link">
+    docker export
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-rmi-with-multiple-tags" class="md-nav__link">
+    docker rmi with multiple tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-update" class="md-nav__link">
+    docker update
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#find-the-cgroup-for-a-given-container" class="md-nav__link">
+    Find the cgroup for a given container
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-files" class="md-nav__link">
+    Configuration files🔗
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#antivirus-software-and-docker" class="md-nav__link">
+    Antivirus software and Docker
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multistage-builds" class="md-nav__link">
+    Multistage Builds
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#docker-service-create" class="md-nav__link">
+    docker service create
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#metrics" class="md-nav__link">
+    metrics
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#view-task-state" class="md-nav__link">
+    View task state
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Concepts</h1>
+                
+                <ul>
+<li>
+<p>Default logging driver : json-file</p>
+</li>
+<li>
+<p>The following ports must be available. On some systems, these ports are open by default.</p>
+<ul>
+<li>TCP port 2377 for cluster management communications</li>
+<li>TCP and UDP port 7946 for communication among nodes</li>
+<li>UDP port 4789 for overlay network traffic</li>
+</ul>
+</li>
+<li>
+<p>Secrets can be used by Swarm services, not standalone containers.</p>
+</li>
+<li>
+<p><strong>Enable live restore</strong></p>
+<p>There are two ways to enable the live restore setting to keep containers alive when the daemon becomes unavailable. Only do one of the following.</p>
+<p>Add the configuration to the daemon configuration file. On Linux, this defaults to /etc/docker/daemon.json. On Docker Desktop for Mac or Docker Desktop for Windows, select the Docker icon from the task bar, then click Preferences -&gt; Daemon -&gt; Advanced.</p>
+<pre><code>     Use the following JSON to enable live-restore.
+
+    {
+      "live-restore": true
+    }
+</code></pre>
+<p>Restart the Docker daemon. On Linux, you can avoid a restart (and avoid any downtime for your containers) by reloading the Docker daemon. If you use systemd, then use the command systemctl reload docker. Otherwise, send a SIGHUP signal to the dockerd process.</p>
+<pre><code>sudo kill -SIGHUP $(pid_of_dockerd)
+</code></pre>
+</li>
+</ul>
+<p>If you prefer, you can start the dockerd process manually with the --live-restore flag. This approach is not recommended because it does not set up the environment that systemd or another process manager would use when starting the Docker process. This can cause unexpected behavior.</p>
+<ul>
+<li>
+<p>A grant is made up of subject, role and resource set.</p>
+</li>
+<li>
+<p>Grants define which users can access what resources in what way. 
+Grants are effectively ACLs, and when grouped together, they provide comprehensive access policies for an entire organisation.</p>
+</li>
+<li>
+<p>Only admin can manage grants, subjects, roles and access to resources.</p>
+</li>
+<li>
+<p>Secrets are stored at /run/secrets</p>
+</li>
+<li>
+<p>Default location of config file is /</p>
+</li>
+<li>
+<p>docker.sock owner is root and default permissions are 660 (rw-rw-----)</p>
+</li>
+<li>
+<p>docker run -m -&gt; to limit the memory</p>
+</li>
+<li>
+<p>--privileged flag is used to enable all kernel capabilities, which enables a process running within a Docker container to bypass most of the controls such as kernel namespaces and cgroups limitations.</p>
+</li>
+<li>
+<p>Blocklevel storage drivers - devicemapper, btrfs, zfs</p>
+</li>
+<li>
+<p>Process spawned by Docker are run using root user.</p>
+</li>
+<li>
+<p>Secrets are encrypted at rest</p>
+</li>
+<li>
+<p>Config is transmitted encrypted to the manager.</p>
+</li>
+<li>
+<p>Tmpfs mount are available for linux.</p>
+</li>
+<li>
+<p>loop-lvm - testing, direct-lvm - production</p>
+</li>
+<li>
+<p>Swarm, UCP, DTR - order of backup and recovery</p>
+</li>
+<li>
+<p>Can’t back metrics and monitoring data</p>
+</li>
+<li>
+<p>A task is a one-directional mechanism.</p>
+<p>This means that it progresses monotonically through a series of states: assigned, prepared, running, etc. If the task fails the orchestrator removes the task and its container and then creates a new task to replace it according to the desired state specified by the service.</p>
+</li>
+<li>
+<p>There are different kinds of resources for creating Pods:</p>
+</li>
+<li>
+<p>Use a Deployment, ReplicaSet or StatefulSet for Pods that are not expected to terminate, for example, web servers.</p>
+</li>
+<li>Use a Job for Pods that are expected to terminate once their work is complete; for example, batch computations. </li>
+<li>Jobs are appropriate only for Pods with restartPolicy equal to OnFailure or Never.</li>
+<li>
+<p>Use a DaemonSet for Pods that need to run one per eligible node.</p>
+</li>
+<li>
+<p>Like a Deployment, a StatefulSet manages Pods that are based on an identical container spec. Unlike a Deployment, a StatefulSet maintains a sticky identity for each of their Pods. These pods are created from the same spec, but are not interchangeable: each has a persistent identifier that it maintains across any rescheduling.</p>
+</li>
+<li>
+<p>To configure the restart policy for a container, use the --restart flag when using the docker run command. The value of the --restart flag can be any of the following:</p>
+<ul>
+<li>no - Do not automatically restart the container. (the default)</li>
+<li>on-failure - Restart the container if it exits due to an error, which manifests as a non-zero exit code.</li>
+<li>always - Always restart the container if it stops. If it is manually stopped, it is restarted only when Docker daemon restarts or the container itself is manually restarted. (See the second bullet listed in restart policy details)</li>
+<li>unless-stopped - Similar to always, except that when the container is stopped (manually or otherwise), it is not restarted even after Docker daemon restarts.</li>
+</ul>
+<p>https://docs.docker.com/config/containers/start-containers-automatically/</p>
+</li>
+<li>
+<p>A Secret is an object that contains a small amount of sensitive data such as a password, a token, or a key. Such information might otherwise be put in a Pod specification or in an image. Users can create secrets and the system also creates some secrets.</p>
+<p>To use a secret, a Pod needs to reference the secret. A secret can be used with a Pod in three ways:</p>
+<pre><code>- As files in a volume mounted on one or more of its containers.
+- As container environment variable.
+- By the kubelet when pulling images for the Pod.
+</code></pre>
+</li>
+<li>
+<p>By default, a container has no resource constraints and can use as much of a given resource as the host’s kernel scheduler allows. Docker provides ways to control how much memory, or CPU a container can use, setting runtime configuration flags of the docker run command.</p>
+</li>
+<li>
+<p>Best practices for writing Dockerfiles:</p>
+<ul>
+<li>Create ephemeral containers</li>
+<li>Understand build context</li>
+<li>Pipe Dockerfile through stdin</li>
+<li>Exclude with .dockerignore</li>
+<li>Use multi-stage builds</li>
+<li>Don’t install unnecessary packages</li>
+<li>Decouple applications</li>
+<li>Minimize the number of layers</li>
+<li>Sort multi-line arguments</li>
+<li>Leverage build cache</li>
+</ul>
+</li>
+<li>
+<p>The default filename is Dockerfile (without an extension), and using the default can make various tasks easier while working with containers.</p>
+</li>
+<li>
+<p>CMD instruction allows you to set a default command, which will be executed only when you run container without specifying a command. If Docker container runs with a command, the default command will be ignored. If Dockerfile has more than one CMD instruction, all but last CMD instructions are ignored. The main purpose of a CMD is to provide defaults for an executing container.</p>
+</li>
+<li>
+<p>ENTRYPOINT instruction allows you to configure a container that will run as an executable. It looks similar to CMD, because it also allows you to specify a command with parameters. The difference is ENTRYPOINT command and parameters are not ignored when Docker container runs with command line parameters. (There is a way to ignore ENTTRYPOINT, but it is unlikely that you will do it.)</p>
+</li>
+<li>
+<p>The ENV instruction sets the environment variable <key> to the value <value>. This value will be in the environment for all subsequent instructions in the build stage.</p>
+</li>
+<li>
+<p>Also, the environment variables set using ENV will persist when a container is run from the resulting image. You can view the values using docker inspect, and change them using docker run --env <key>=<value>.</p>
+</li>
+<li>
+<p>The ADD instruction operates similarly to the COPY instruction with two important differences.</p>
+</li>
+<li>
+<p>The ADD instruction will additionally support:</p>
+<ul>
+<li>Fetch remote source files if a URL is specified</li>
+<li>Auto-extraction of archive files. Extract the files of any source that are determined to be of archive file type.</li>
+</ul>
+</li>
+<li>
+<p>The EXPOSE instruction informs Docker that the container listens on the specified network ports at runtime. You can specify whether the port listens on TCP or UDP, and the default is TCP if the protocol is not specified.</p>
+</li>
+<li>
+<p>The EXPOSE instruction does not actually publish the port. It functions as a type of documentation between the person who builds the image and the person who runs the container, about which ports are intended to be published. To actually publish the port when running the container, use the -p flag on docker run to publish and map one or more ports, or the -P flag to publish all exposed ports and map them to high-order ports.</p>
+</li>
+<li>
+<p>The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.</p>
+</li>
+<li>
+<p>CMD instruction allows you to set a default command, which will be executed only when you run container without specifying a command. If Docker container runs with a command, the default command will be ignored. If Dockerfile has more than one CMD instruction, all but last CMD instructions are ignored.</p>
+</li>
+<li>
+<p>Note: Don’t confuse RUN with CMD. RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image.</p>
+</li>
+<li>
+<p>When building an image, do not use your root directory, /, as the PATH as it causes the build to transfer the entire contents of your hard drive to the Docker daemon.</p>
+</li>
+</ul>
+<p>The build is run by the Docker daemon, not by the CLI.</p>
+<p>The first thing a build process does is send the entire context (recursively) to the daemon.</p>
+<p>Build context : All the files found in the specific path or URL</p>
+<h6 id="to-create-a-tag-target_image-that-refers-to-source_image-use">To create a tag TARGET_IMAGE that refers to SOURCE_IMAGE use:</h6>
+<pre><code>docker tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]
+</code></pre>
+<p>Tag an image referenced by ID</p>
+<p>To tag a local image with ID “0e5574283393” into the “fedora” repository with “version1.0”:</p>
+<pre><code>$ docker tag 0e5574283393 fedora/httpd:version1.0
+</code></pre>
+<p>Tag an image referenced by Name</p>
+<p>To tag a local image with name “httpd” into the “fedora” repository with “version1.0”:</p>
+<pre><code>$ docker tag httpd fedora/httpd:version1.0
+</code></pre>
+<p>Note that since the tag name is not specified, the alias is created for an existing local version httpd:latest.</p>
+<p>Tag an image referenced by Name and Tag</p>
+<p>To tag a local image with name “httpd” and tag “test” into the “fedora” repository with “version1.0.test”:</p>
+<pre><code>$ docker tag httpd:test fedora/httpd:version1.0.test
+</code></pre>
+<p>To show untagged images, or dangling, use:</p>
+<pre><code>docker images --filter &quot;dangling=true&quot;
+</code></pre>
+<p>This will display untagged images that are the leaves of the images tree (not intermediary layers). These images occur when a new build of an image takes the repo:tag away from the image ID, leaving it as <none>:<none> or untagged. A warning will be issued if trying to remove an image when a container is presently using it. By having this flag it allows for batch cleanup.</p>
+<h6 id="dtr-immutable-tags">DTR - Immutable tags</h6>
+<ul>
+<li>
+<p>By default, users with read and write access to a repository can push the same tag multiple times to that repository. For example, when user A pushes an image to library/wordpress:latest, there is no preventing user B from pushing an image with the same name but a completely different functionality. This can make it difficult to trace the image back to the build that generated it.</p>
+</li>
+<li>
+<p>To prevent tags from being overwritten, you can configure a repository to be immutable in the DTR web UI. Once configured, DTR will not allow anyone else to push another image tag with the same name.</p>
+</li>
+</ul>
+<h6 id="healthcheck">Healthcheck</h6>
+<p>The HEALTHCHECK instruction tells Docker how to test a container to check that it is still working. This can detect cases such as a web server that is stuck in an infinite loop and unable to handle new connections, even though the server process is still running.</p>
+<p>The HEALTHCHECK instruction tells Docker how to test a container to check that it is still working.</p>
+<p>The HEALTHCHECK instruction has two forms:
+  <code>HEALTHCHECK [OPTIONS] CMD command (check container health by running a command inside the container)
+  HEALTHCHECK NONE (disable any healthcheck inherited from the base image)</code></p>
+<p>When a container has a healthcheck specified, it has a health status in addition to its normal status.</p>
+<p>The command after the CMD keyword can be either a shell command (e.g. HEALTHCHECK CMD /bin/check-running) or an exec array (as with other Dockerfile commands; see e.g. ENTRYPOINT for details)</p>
+<h6 id="arg-vs-env">ARG vs ENV</h6>
+<p>The ARG instruction defines a variable that users can pass at build-time to the builder with the docker build command using the --build-arg <varname>=<value> flag.</p>
+<p>https://docs.docker.com/engine/reference/builder/#arg</p>
+<p>Unlike an ARG instruction, ENV values are always persisted in the built image.</p>
+<p>The variable expansion technique in this example allows you to pass arguments from the command line and persist them in the final image by leveraging the ENV instruction.</p>
+<p>You can use an ARG or an ENV instruction to specify variables that are available to the RUN instruction.</p>
+<p>Environment variables defined using the ENV instruction always override an ARG instruction of the same name.</p>
+<p>https://docs.docker.com/engine/reference/builder/#run#using-arg-variables</p>
+<h6 id="label">LABEL</h6>
+<pre><code>LABEL &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; &lt;key&gt;=&lt;value&gt; ...
+</code></pre>
+<p>The LABEL instruction adds metadata to an image. A LABEL is a key-value pair.</p>
+<p>Example:
+LABEL version="1.0"</p>
+<h6 id="docker-search">docker search</h6>
+<p>To search the Docker Hub for images use:</p>
+<pre><code>docker search [OPTIONS] TERM
+</code></pre>
+<p>The filtering flag (-f or --filter) format is a key=value pair. If there is more than one filter, then pass multiple flags (e.g. --filter is-automated=true --filter stars=3)</p>
+<p>The currently supported filters are:</p>
+<pre><code>stars (int - number of stars the image has)
+is-automated (boolean - true or false) - is the image automated or not
+is-official (boolean - true or false) - is the image official or not
+</code></pre>
+<p>https://docs.docker.com/engine/reference/commandline/search/#filtering</p>
+<h6 id="run">RUN</h6>
+<p>The RUN instruction will execute any commands in a new layer on top of the current image and commit the results. The resulting committed image will be used for the next step in the Dockerfile.</p>
+<p>Layering RUN instructions and generating commits conforms to the core concepts of Docker where commits are cheap and containers can be created from any point in an image’s history, much like source control.</p>
+<p>Therefore, it’s ok to have more than one RUN instruction.</p>
+<p>https://docs.docker.com/engine/reference/builder/#run</p>
+<h6 id="docker-save">docker save</h6>
+<p>To save one or more images to a tar archive (streamed to STDOUT by default) use:</p>
+<pre><code>docker save [OPTIONS] IMAGE [IMAGE...]
+</code></pre>
+<p>The achieve can be distributed through different channels such as: central file server, version-control system, sent it to you over email or shared it via flash drive.</p>
+<p>https://docs.docker.com/engine/reference/commandline/save/</p>
+<p>Docker provides a command to load images into Docker from a file. With this tool, you can load images that you acquired through other channels.</p>
+<p>https://docs.docker.com/engine/reference/commandline/image_load/</p>
+<h6 id="multi-stage-builds">Multi stage builds</h6>
+<p>Multi-stage builds allow you to drastically reduce the size of your final image, without struggling to reduce the number of intermediate layers and files.</p>
+<p>With multi-stage builds, you use multiple FROM statements in your Dockerfile. Each FROM instruction can use a different base, and each of them begins a new stage of the build. You can selectively copy artifacts from one stage to another, leaving behind everything you don’t want in the final image.</p>
+<p>https://docs.docker.com/develop/develop-images/multistage-build/#use-multi-stage-builds</p>
+<h6 id="container-vs-image">Container vs Image</h6>
+<p>Fundamentally, a container is nothing but a running process, with some added encapsulation features applied to it in order to keep it isolated from the host and from other containers.</p>
+<p>An image includes everything needed to run an application - the code or binary, runtimes, dependencies, and any other filesystem objects required.</p>
+<h6 id="info-vs-inspect">Info vs Inspect</h6>
+<pre><code>docker info - system wide information
+
+docker inspect &lt;container&gt;
+</code></pre>
+<h6 id="etcdockerdaemonjson">/etc/docker/daemon.json</h6>
+<ul>
+<li>To make the modifications and send the HUP signal in one-line use:</li>
+</ul>
+<pre><code>echo '{&quot;debug&quot;: true}' &gt; /etc/docker/daemon.json ; sudo kill -HUP
+</code></pre>
+<h6 id="varrundockersock">/var/run/docker.sock</h6>
+<ul>
+<li>UNIX socket that Docker daemon is listening to. It's the main entry point for Docker API. It also can be TCP socket but by default for security reasons Docker defaults to use UNIX socket.</li>
+</ul>
+<h6 id="privileged-vs-unprivileged-containers">privileged vs unprivileged containers</h6>
+<p>By default, Docker containers are “unprivileged” and cannot, for example, run a Docker daemon inside a Docker container. This is because by default a container is not allowed to access any devices, but a “privileged” container is given access to all devices (see the documentation on cgroups devices).</p>
+<p>When the operator executes docker run --privileged, Docker will enable access to all devices on the host as well as set some configuration in AppArmor or SELinux to allow the container nearly all the same access to the host as processes running outside containers on the host. Additional information about running with --privileged is available on the Docker Blog.</p>
+<p>If you want to limit access to a specific device or devices you can use the --device flag. It allows you to specify one or more devices that will be accessible within the container.</p>
+<pre><code>$ docker run --device=/dev/snd:/dev/snd ...
+</code></pre>
+<p>Following the least privileged principle, you should use --device instead of --privileged.</p>
+<p>https://docs.docker.com/engine/reference/run/#/runtime-privilege-and-linux-capabilities</p>
+<p>Docker Engine has a default list of capabilities for all newly created containers.</p>
+<h6 id="syslog">Syslog</h6>
+<p>Having a central location for all Engine and container logs is recommended. This provides "off-node" access to all the logs, empowering developers without having to grant them SSH access.</p>
+<p>To enable centralized logging, modify /etc/docker/daemon.json and add the following:</p>
+<pre><code>{
+  &quot;log-level&quot;: &quot;syslog&quot;,
+  &quot;log-opts&quot;: {syslog-address=tcp://192.x.x.x}
+}
+</code></pre>
+<p>Then restart the daemon:</p>
+<pre><code>sudo systemctl restart docker
+</code></pre>
+<h6 id="certificate-authentication">certificate authentication</h6>
+<p>You don’t need to run the docker client with sudo or the docker group when you use certificate authentication. That means anyone with the keys can give any instructions to your Docker daemon, giving them root access to the machine hosting the daemon. However, guard these keys as you would a root password!</p>
+<h6 id="copy-on-write-strategy">Copy-on-write strategy</h6>
+<p>When an existing file in a container is modified, the storage driver performs a copy-on-write operation. The specifics steps involved depend on the specific storage driver. For the aufs, overlay, and overlay2 drivers, the copy-on-write operation follows this rough sequence:</p>
+<ul>
+<li>Search through the image layers for the file to update. The process starts at the newest layer and works down to the base layer one layer at a time. When results are found, they are added to a cache to speed future operations.</li>
+<li>Perform a copy_up operation on the first copy of the file that is found, to copy the file to the container’s writable layer.</li>
+<li>Any modifications are made to this copy of the file, and the container cannot see the read-only copy of the file that exists in the lower layer.</li>
+</ul>
+<h6 id="image">Image</h6>
+<p>A Docker image is built up from a series of layers. Each layer represents an instruction in the image’s Dockerfile.</p>
+<p>Each layer except the very last one is read-only.</p>
+<p>Each layer is only a set of differences from the layer before it.</p>
+<h6 id="docker-namespaces">Docker namespaces</h6>
+<p>Docker namespaces provide a layer of isolation. Each aspect of a container runs in a separate namespace and its access is limited to that namespace.</p>
+<p>Docker Engine uses namespaces such as the following on Linux:
+ - The pid namespace: Process isolation (PID: Process ID).
+ - The net namespace: Managing network interfaces (NET: Networking).
+ - The ipc namespace: Managing access to IPC resources (IPC: InterProcess Communication).
+ - The mnt namespace: Managing filesystem mount points (MNT: Mount).
+ - The uts namespace: Isolating kernel and version identifiers. (UTS: Unix Timesharing System).</p>
+<h6 id="logging-mechanism">logging mechanism</h6>
+<p>Docker includes multiple logging mechanisms to help you get information from running containers and services. These mechanisms are called logging drivers.</p>
+<p>To find the current logging driver for a running container, run the docker inspect command, substituting the container name or ID for <CONTAINER>:</p>
+<pre><code>$ docker inspect &lt;CONTAINER&gt;
+</code></pre>
+<h6 id="cpuset-cpus">cpuset-cpus</h6>
+<p>By default, each container’s access to the host machine’s CPU cycles is unlimited. You can set various constraints to limit a given container’s access to the host machine’s CPU cycles.</p>
+<p>Several runtime flags allow you to configure the amount of access to CPU resources your container has. When you use these settings, Docker modifies the settings for the container’s cgroup on the host machine.</p>
+<p>--cpuset-cpus</p>
+<p>Limit the specific CPUs or cores a container can use. A comma-separated list or hyphen-separated range of CPUs a container can use, if you have more than one CPU. The first CPU is numbered 0. A valid value might be 0-3 (to use the first, second, third, and fourth CPU) or 1,3 (to use the second and fourth CPU).</p>
+<p>https://docs.docker.com/config/containers/resource_constraints/#cpu</p>
+<p>We can set cpus in which to allow execution for containers.</p>
+<p>Examples:</p>
+<pre><code>$ docker run -it --cpuset-cpus=&quot;1,3&quot; ubuntu:14.04 /bin/bash
+</code></pre>
+<p>This means processes in container can be executed on cpu 1 and cpu 3.</p>
+<pre><code>$ docker run -it --cpuset-cpus=&quot;0-2&quot; ubuntu:14.04 /bin/bash
+</code></pre>
+<p>This means processes in container can be executed on cpu 0, cpu 1 and cpu 2.</p>
+<p>https://docs.docker.com/engine/reference/run/#cpuset-constraint</p>
+<h6 id="docker-system-events">docker system events</h6>
+<p>Use docker system events to get real-time events from the server.</p>
+<p>These events differ per Docker object type such as containers, images, plugins, volumes and daemons.</p>
+<h6 id="enabledisable-docker">enable/disable docker</h6>
+<p>Most current Linux distributions (RHEL, CentOS, Fedora, Ubuntu 16.04 and higher) use systemd to manage which services start when the system boots. Ubuntu 14.10 and below use upstart.</p>
+<pre><code>$ sudo systemctl enable docker
+</code></pre>
+<p>To disable this behavior, use disable instead.</p>
+<pre><code>$ sudo systemctl disable docker
+</code></pre>
+<h6 id="control-groups">Control groups</h6>
+<p>Docker Engine on Linux also relies on another technology called control groups (cgroups).</p>
+<p>A cgroup limits an application to a specific set of resources. Control groups allow Docker Engine to share available hardware resources to containers and optionally enforce limits and constraints.</p>
+<p>For example, you can limit the memory or CPU available to a specific container.</p>
+<h6 id="-cpus">--cpus=<value></h6>
+<p>Specify how much of the available CPU resources a container can use. For instance, if the host machine has two CPUs and you set --cpus="1.5", the container is guaranteed at most one and a half of the CPUs. This is the equivalent of setting --cpu-period="100000" and --cpu-quota="150000". Available in Docker 1.13 and higher.</p>
+<h6 id="-m-or-memory">-m or --memory=</h6>
+<p>The maximum amount of memory the container can use. If you set this option, the minimum allowed value is 4m (4 megabyte).</p>
+<p>Most of these options take a positive integer, followed by a suffix of b, k, m, g, to indicate bytes, kilobytes, megabytes, or gigabytes.</p>
+<h6 id="log-driver-modes">log driver modes</h6>
+<p>Docker provides two modes for delivering messages from the container to the log driver:</p>
+<ul>
+<li>(default) direct, blocking delivery from container to driver</li>
+<li>non-blocking delivery that stores log messages in an intermediate per-container ring buffer for consumption by driver</li>
+</ul>
+<h6 id="-default-ulimit">--default-ulimit</h6>
+<p>--default-ulimit allows you to set the default ulimit options to use for all containers. It takes the same options as --ulimit for docker run. If these defaults are not set, ulimit settings will be inherited, if not set on docker run, from the Docker daemon. Any --ulimit options passed to docker run will overwrite these defaults.</p>
+<p>Be careful setting nproc with the ulimit flag as nproc is designed by Linux to set the maximum number of processes available to a user, not to a container. For details please check the run reference.</p>
+<h6 id="secure-registry">Secure registry</h6>
+<ul>
+<li>access images stored on a secure registry that is using a self-signed certificate</li>
+<li>configure our registry as "insecure" in Docker Engine's daemon.json file.</li>
+<li>to trust self-signed certificates. We will add DTR's created Certificate Authority (CA) into our system's trusted-CA list.</li>
+</ul>
+<h6 id="docker-image-import">docker image import</h6>
+<p>docker image import will only retrieve image layers containing binaries, libraries, and configurations for the process but without any meta-information about how to launch the process, what volumes to use, what ports should be used, and so on.</p>
+<h6 id="how-do-we-only-list-containers-created-from-an-alpine310-image">How do we only list containers created from an alpine:3.10 image?</h6>
+<pre><code>a) docker ps --format ancestor=alpine:3.10
+b) docker container ls --filter ancestor=alpine:3.10
+</code></pre>
+<h6 id="which-of-the-following-is-true-about-privileged-containers">Which of the following is true about privileged containers?</h6>
+<pre><code>a) Resource limits will be avoided (CPU, memory, and disk I/O).
+b) These containers run with all available capabilities.
+</code></pre>
+<h6 id="docker-logs">docker logs</h6>
+<p>The docker logs command batch-retrieves logs present at the time of execution.</p>
+<p>Note This command is only functional for containers that are started with the json-file or journald logging driver.</p>
+<h6 id="docker-container-logs-vs-docker-logs">docker container logs vs docker logs</h6>
+<p>The docker logs command batch-retrieves logs present at the time of execution.</p>
+<p>This command is only functional for containers that are started with the json-file or journald logging driver.</p>
+<p>docker container logs - Fetch the logs of a container</p>
+<h6 id="docker-run">docker run</h6>
+<p>In the Dockerfile context, The RUN instruction will execute any commands in a new layer on top of the current image and commit the results.</p>
+<p>Layering RUN instructions and generating commits conforms to the core concepts of Docker where commits are cheap and containers can be created from any point in an image’s history, much like source control.</p>
+<p>https://docs.docker.com/engine/reference/builder/#run</p>
+<p>Note: Don’t confuse RUN with CMD. RUN actually runs a command and commits the result; CMD does not execute anything at build time, but specifies the intended command for the image.</p>
+<h6 id="how-can-we-review-ports-published-for-a-container-named-webserver">How can we review ports published for a container named webserver?</h6>
+<pre><code>   a) Using docker container ls --filter name=webserver.
+   b) Using docker container port webserver.
+   c) Using docker container inspect webserver --format="{{ .NetworkSettings.Ports }}".
+</code></pre>
+<h6 id="docker-export">docker export</h6>
+<p>docker export command exports a container’s filesystem as a tar archive.</p>
+<h6 id="docker-rmi-with-multiple-tags">docker rmi with multiple tags</h6>
+<p>If an image has one or more tags referencing it, you must remove all of them before the image is removed or you can use the -f flag and specify the image’s short or long ID, then this command untags and removes all images that match the specified ID.</p>
+<pre><code>docker rmi -f fd484f19954f
+</code></pre>
+<h6 id="docker-update">docker update</h6>
+<p>The docker update command dynamically updates container configuration. You can use this command to prevent containers from consuming too many resources from their Docker host. With a single command, you can place limits on a single container or on many. To specify more than one container, provide space-separated list of container names or IDs.</p>
+<h6 id="find-the-cgroup-for-a-given-container">Find the cgroup for a given container</h6>
+<p>For each container, one cgroup is created in each hierarchy. On older systems with older versions of the LXC userland tools, the name of the cgroup is the name of the container. With more recent versions of the LXC tools, the cgroup is lxc/<container_name>.</p>
+<p>Pause container - An empty container which holds cgroups, reservations, namespaces of a pod before its individual container is created.</p>
+<p>Builder Pattern - It is a design pattern used to maintain 2 individual Dockerfiles for app development and production purposes.</p>
+<h6 id="configuration-files">Configuration files🔗</h6>
+<p>By default, the Docker command line stores its configuration files in a directory called .docker within your $HOME directory.</p>
+<h6 id="antivirus-software-and-docker">Antivirus software and Docker</h6>
+<p>When antivirus software scans files used by Docker, these files may be locked in a way that causes Docker commands to hang.</p>
+<p>One way to reduce these problems is to add the Docker data directory (/var/lib/docker on Linux, %ProgramData%\docker on Windows Server, or $HOME/Library/Containers/com.docker.docker/ on Mac) to the antivirus’s exclusion list. However, this comes with the trade-off that viruses or malware in Docker images, writable layers of containers, or volumes are not detected. If you do choose to exclude Docker’s data directory from background virus scanning, you may want to schedule a recurring task that stops Docker, scans the data directory, and restarts Docker.</p>
+<h6 id="multistage-builds">Multistage Builds</h6>
+<pre><code>$ docker build -t alexellis2/href-counter:latest .
+$ docker build --target builder -t alexellis2/href-counter:latest .
+</code></pre>
+<ul>
+<li>
+<p>The container is assigned a separate IP address for every Docker network it connects to. The IP address is assigned from the pool assigned to the network, so the Docker daemon effectively acts as a DHCP server for each container.</p>
+</li>
+<li>
+<p>com.docker.network.bridge.host_binding_ipv4    --ip   Default IP when binding container ports</p>
+</li>
+<li>
+<p>The default value of the delay between two reset occurrences of a container - 100ms</p>
+</li>
+<li>
+<p>This command is only functional for containers that are started with the json-file or journald logging driver. (default logging drivers)</p>
+</li>
+</ul>
+<h6 id="docker-service-create">docker service create</h6>
+<p>--update-parallelism Maximum number of tasks updated simultaneously (0 to update all at once)</p>
+<h6 id="metrics">metrics</h6>
+<p>CPU metrics: cpuacct.stat</p>
+<p>Memory metrics: memory.stat</p>
+<h6 id="view-task-state">View task state</h6>
+<p>Run docker service ps <service-name> to get the state of a task. The CURRENT STATE field shows the task’s state and how long it’s been there.</p>
+<pre><code>$ docker service ps webserver
+</code></pre>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="install-docker/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Install Docker" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Install Docker
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="dockerd/" class="md-footer__link md-footer__link--next" aria-label="Next: Dockerd" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Dockerd
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>

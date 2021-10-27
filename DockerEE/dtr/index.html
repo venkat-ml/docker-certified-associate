@@ -1,0 +1,1353 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Docker Trust Registry - DCA</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#docker-trusted-registry-dtr" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="DCA" class="md-header__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            DCA
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker Trust Registry
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="DCA" class="md-nav__button md-logo" aria-label="DCA" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    DCA
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Basics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Basics" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Basics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/install-docker/" class="md-nav__link">
+        Install Docker
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/dockerd/" class="md-nav__link">
+        Dockerd
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/commands/" class="md-nav__link">
+        Commands
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/kubernetes/" class="md-nav__link">
+        Kubernetes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Basics/probes/" class="md-nav__link">
+        Probes
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          DockerEE
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="DockerEE" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          DockerEE
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-hub/" class="md-nav__link">
+        Docker Hub
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ee/" class="md-nav__link">
+        Docker Enterprise Edition
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../dct/" class="md-nav__link">
+        Docker Content Trust
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Docker Trust Registry
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Docker Trust Registry
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-trusted-registry-dtr" class="md-nav__link">
+    Docker Trusted Registry (DTR)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-immutability" class="md-nav__link">
+    Image Immutability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insecure-registries" class="md-nav__link">
+    Insecure registries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notary" class="md-nav__link">
+    Notary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerabilities" class="md-nav__link">
+    Vulnerabilities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    scan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#garbage-collection" class="md-nav__link">
+    Garbage Collection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-dtr" class="md-nav__link">
+    Install DTR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks-used-by-dtr" class="md-nav__link">
+    Networks used by DTR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    Health checks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtr-content-backed-up" class="md-nav__link">
+    DTR content backed-up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtr-content-not-backed-up" class="md-nav__link">
+    DTR content NOT backed-up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ha" class="md-nav__link">
+    HA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-deployment-strategy" class="md-nav__link">
+    Cache deployment strategy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-required-to-deploy-dtr" class="md-nav__link">
+    What is required to deploy DTR?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-endpoints-are-provided-to-verify-dtr-and-ucp-nodes-health" class="md-nav__link">
+    Which endpoints are provided to verify DTR and UCP nodes' health?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-internal-networks-are-deployed-for-dtr-dtr-ol" class="md-nav__link">
+    Which internal networks are deployed for DTR? dtr-ol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#only-write-access-can-scan" class="md-nav__link">
+    only write access can scan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notary-cmd-dockeriolibrary" class="md-nav__link">
+    notary {cmd} docker.io/library/
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag-name" class="md-nav__link">
+    tag name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-on-a-worker-node" class="md-nav__link">
+    install on a worker node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-a-tag-limit" class="md-nav__link">
+    Set a tag limit
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ucp/" class="md-nav__link">
+        Universal Control Plane
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_4">
+          Storage
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Storage" data-md-level="1">
+        <label class="md-nav__title" for="__nav_4">
+          <span class="md-nav__icon md-icon"></span>
+          Storage
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/configure-device-mapper/" class="md-nav__link">
+        Configure Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/devicemapper/" class="md-nav__link">
+        Devicemapper
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/volumes/" class="md-nav__link">
+        Volumes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/docker-volumes/" class="md-nav__link">
+        Volumes Handson
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/Storage/" class="md-nav__link">
+        Storage
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/storage-in-cluster/" class="md-nav__link">
+        Storage in a cluster
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/image-cleanup/" class="md-nav__link">
+        Image Cleanup
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/using-volumes-in-docker-containers/" class="md-nav__link">
+        Using Volumes in Docker Containers
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Storage/use-storage-volumes-with-docker-swarm/" class="md-nav__link">
+        Using Storage Volumes with Docker Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_5">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security" data-md-level="1">
+        <label class="md-nav__title" for="__nav_5">
+          <span class="md-nav__icon md-icon"></span>
+          Security
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/apparmor/" class="md-nav__link">
+        AppArmor
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/seccomp/" class="md-nav__link">
+        Seccomp
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Security/ssl-certificate/" class="md-nav__link">
+        SSL Certificate
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_6">
+          Networking
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Networking" data-md-level="1">
+        <label class="md-nav__title" for="__nav_6">
+          <span class="md-nav__icon md-icon"></span>
+          Networking
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/concepts/" class="md-nav__link">
+        Concepts
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/bridge/" class="md-nav__link">
+        Bridge
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/external-dns/" class="md-nav__link">
+        External DNS
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Networking/swarm/" class="md-nav__link">
+        Swarm
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_7">
+          Practice
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Practice" data-md-level="1">
+        <label class="md-nav__title" for="__nav_7">
+          <span class="md-nav__icon md-icon"></span>
+          Practice
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../to_read/" class="md-nav__link">
+        To read
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#docker-trusted-registry-dtr" class="md-nav__link">
+    Docker Trusted Registry (DTR)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#image-immutability" class="md-nav__link">
+    Image Immutability
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#insecure-registries" class="md-nav__link">
+    Insecure registries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notary" class="md-nav__link">
+    Notary
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vulnerabilities" class="md-nav__link">
+    Vulnerabilities
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scan" class="md-nav__link">
+    scan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#garbage-collection" class="md-nav__link">
+    Garbage Collection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-dtr" class="md-nav__link">
+    Install DTR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#networks-used-by-dtr" class="md-nav__link">
+    Networks used by DTR
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#health-checks" class="md-nav__link">
+    Health checks
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtr-content-backed-up" class="md-nav__link">
+    DTR content backed-up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#dtr-content-not-backed-up" class="md-nav__link">
+    DTR content NOT backed-up
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ha" class="md-nav__link">
+    HA
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cache-deployment-strategy" class="md-nav__link">
+    Cache deployment strategy
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-required-to-deploy-dtr" class="md-nav__link">
+    What is required to deploy DTR?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-endpoints-are-provided-to-verify-dtr-and-ucp-nodes-health" class="md-nav__link">
+    Which endpoints are provided to verify DTR and UCP nodes' health?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#which-internal-networks-are-deployed-for-dtr-dtr-ol" class="md-nav__link">
+    Which internal networks are deployed for DTR? dtr-ol
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#only-write-access-can-scan" class="md-nav__link">
+    only write access can scan
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notary-cmd-dockeriolibrary" class="md-nav__link">
+    notary {cmd} docker.io/library/
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tag-name" class="md-nav__link">
+    tag name
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#install-on-a-worker-node" class="md-nav__link">
+    install on a worker node
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#set-a-tag-limit" class="md-nav__link">
+    Set a tag limit
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Docker Trust Registry</h1>
+                
+                <h6 id="docker-trusted-registry-dtr">Docker Trusted Registry (DTR)</h6>
+<p>Docker Trusted Registry can scan images in your repositories to verify that they are free from known security vulnerabilities or exposures, using Docker Security Scanning.</p>
+<p>Docker Security Scanning is available as an add-on to Docker Trusted Registry, and an administrator configures it for your DTR instance.</p>
+<h6 id="image-immutability">Image Immutability</h6>
+<p>As of DTR 2.3.0, there is an option to set a repository to Immutable. Setting a repository to Immutable means the tags can not be overwritten. This is a great feature for ensure the base images do not change over time. This next example is of the Alpine base image. Ideally CI would update the base image and push to DTR with a specific tag. Being Immutable simply guarantees that an authorized user can always go back to the specific tag and trust it has not changed. An Image Promotion Policy can extend on this.</p>
+<h6 id="insecure-registries">Insecure registries</h6>
+<p>While it’s highly recommended to secure your registry using a TLS certificate issued by a known CA, you can choose to use self-signed certificates, or use your registry over an unencrypted HTTP connection. Either of these choices involves security trade-offs and additional configuration steps.</p>
+<p>This procedure configures Docker to entirely disregard security for your registry.</p>
+<ol>
+<li>Edit the daemon.json file, whose default location is /etc/docker/daemon.json. Add the following content.</li>
+</ol>
+<pre><code>{
+  &quot;insecure-registries&quot;: [&quot;myregistrydomain.com:5000&quot;]
+}
+</code></pre>
+<ol>
+<li>
+<p>Restart Docker for the changes to take effect.</p>
+</li>
+<li>
+<p>Repeat these steps on every Engine host that wants to access your registry.</p>
+</li>
+</ol>
+<p>Alternatively, you can pass the <strong>--engine-insecure-registry</strong> flag when the docker engine is started.</p>
+<h6 id="notary">Notary</h6>
+<p>As of Docker Engine 18.06 there is a docker trust command that will streamline the image signing process. </p>
+<p>The old is Notary. Notary is a tool for publishing and managing trusted collections of content. </p>
+<p>Publishers can digitally sign collections and consumers can verify integrity and origin of content. This ability is built on a straightforward key management and signing interface to create signed collections and configure trusted publishers.</p>
+<h6 id="vulnerabilities">Vulnerabilities</h6>
+<p>From the Components view, the CVE number, a link to CVE database, file path, layers affected, severity, and description of severity are available.</p>
+<h6 id="scan">scan</h6>
+<p>Only users with write access to a repository can manually start a scan. Users with read-only access can view the scan results, but cannot start a new scan.</p>
+<p>Image scan is a feature of Docker trusted Repository DTR, which is part of Docker Entreprise Edition.</p>
+<p>To use the image scanning feature, make sure that you or your organization has purchased a DTR license that includes Docker Security Scanning, and that your Docker ID can access and download this license from the Docker Hub.</p>
+<p>After you get the license, you’ll need to Enable DTR security scanning.</p>
+<p>Docker Trusted Registry can scan images in your repositories to verify that they are free from known security vulnerabilities or exposures, using Docker Security Scanning.</p>
+<p>Docker Security Scanning is available as an add-on to Docker Trusted Registry, and an administrator configures it for your DTR instance</p>
+<h6 id="garbage-collection">Garbage Collection</h6>
+<p>Garbage collection is an often-overlooked area from a security standpoint. Old, out-of-date images may contain security flaws or exploitable vulnerabilities; removing unnecessary images is important. Garbage collection is a feature that ensures that unreferenced images (and layers) are removed.</p>
+<p>In the context of the Docker registry, garbage collection is the process of removing blobs from the filesystem when they are no longer referenced by a manifest. Blobs can include both layers and manifests.</p>
+<p>Registry data can occupy considerable amounts of disk space. In addition, garbage collection can be a security consideration, when it is desirable to ensure that certain layers no longer exist on the filesystem.</p>
+<h6 id="install-dtr">Install DTR</h6>
+<p>You can install DTR on-premises or on a cloud provider. To install DTR, all nodes must:</p>
+<ul>
+<li>
+<p>Be a worker node managed by UCP (Universal Control Plane). DTR replicas are installed one on each UCP worker node.</p>
+</li>
+<li>
+<p>Have a fixed hostname.</p>
+</li>
+</ul>
+<h6 id="networks-used-by-dtr">Networks used by DTR</h6>
+<p>To allow containers to communicate, when installing DTR the overlay networks should be created.</p>
+<p>dtr-ol this allows DTR components running on different nodes to communicate, to replicate DTR data</p>
+<h6 id="health-checks">Health checks</h6>
+<p>DTR also exposes several endpoints you can use to assess if a DTR replica is healthy or not:</p>
+<ul>
+<li>
+<p><strong>/health</strong>: Checks if the several components of a DTR replica are healthy, and returns a simple json response. This is useful for load balancing or other automated health check tasks.</p>
+</li>
+<li>
+<p><strong>/load_balancer_status</strong>: Checks if the several components of a DTR replica can be reached, and displays that information in a table. This is useful for an administrator to gauge the status of a DTR replica.</p>
+</li>
+<li>
+<p><strong>/nginx_status</strong>: Returns the number of connections being handled by the NGINX front-end used by DTR.</p>
+</li>
+<li>
+<p><strong>/api/v0/meta/cluster_status</strong>: Returns extensive information about all DTR replicas. </p>
+</li>
+</ul>
+<h6 id="dtr-content-backed-up">DTR content backed-up</h6>
+<ul>
+<li><strong>Configurations</strong> - DTR settings and cluster configurations</li>
+<li><strong>Repository metadata</strong> - Metadata such as image architecture, repositories, images deployed, and size</li>
+<li><strong>Access control to repos and images</strong> - Data about who has access to which images and repositories</li>
+<li><strong>Notary data</strong> - Signatures and digests for images that are signed</li>
+<li><strong>Scan results</strong> - Information about vulnerabilities in your images</li>
+<li><strong>Certificates and keys</strong> - Certificates, public keys, and private keys that are used for mutual TLS communication</li>
+</ul>
+<h6 id="dtr-content-not-backed-up">DTR content NOT backed-up</h6>
+<ul>
+<li><strong>Image content</strong> - The images you push to DTR. This can be stored on the file system of the node running DTR, or other storage system, depending on the configuration. Needs to be backed up separately, depends on DTR configuration</li>
+<li><strong>Users, orgs, teams</strong> - Create a UCP backup to back up this data</li>
+<li><strong>Vulnerability database</strong> - Can be redownloaded after a restore</li>
+</ul>
+<h6 id="ha">HA</h6>
+<p>For high-availability you can deploy multiple DTR replicas, one on each UCP worker node.</p>
+<h6 id="cache-deployment-strategy">Cache deployment strategy</h6>
+<p>The main reason to use a DTR cache is so that users can pull images from a service that’s geographically closer to them.</p>
+<p>In this example, a company has developers spread across three locations: United States, Asia, and Europe. Developers working in the US office can pull their images from DTR without problem, but developers in the Asia and Europe offices complain that it takes them a long time to pulls images.</p>
+<p>To address that, you can deploy DTR caches in the Asia and Europe offices, so that developers working from there can pull images much faster.</p>
+<h6 id="what-is-required-to-deploy-dtr">What is required to deploy DTR?</h6>
+<pre><code>   a) A Docker Enterprise license from Docker Hub and an appropriate repository URL 
+   b) Docker Enterprise Engine and Docker UCP
+</code></pre>
+<h6 id="which-endpoints-are-provided-to-verify-dtr-and-ucp-nodes-health">Which endpoints are provided to verify DTR and UCP nodes' health?</h6>
+<pre><code>   a) DTR provides /_ping, /nginx_status, and /api/v0/meta/cluster_status.
+   c) DTR and UCP provide /_ping.
+</code></pre>
+<h6 id="which-internal-networks-are-deployed-for-dtr-dtr-ol">Which internal networks are deployed for DTR? dtr-ol</h6>
+<h6 id="only-write-access-can-scan">only write access can scan</h6>
+<p>Only users with write access to a repository can manually start a scan. Users with read-only access can view the scan results, but cannot start a new scan.</p>
+<p>The repository name needs to be unique in that namespace, can be two to 255 characters, and can only contain lowercase letters, numbers, hyphens (-), and underscores (_).</p>
+<h6 id="notary-cmd-dockeriolibrary">notary {cmd} docker.io/library/</h6>
+<p>correct GUN format for naming Docker Images for Notary Client</p>
+<h6 id="tag-name">tag name</h6>
+<p>A tag name must be valid ASCII and may contain lowercase and uppercase letters, digits, underscores, periods and dashes. A tag name may not start with a period or a dash and may contain a maximum of 128 characters.</p>
+<h6 id="install-on-a-worker-node">install on a worker node</h6>
+<p>DTR needs to be installed on a worker node that is being managed by UCP.</p>
+<h6 id="set-a-tag-limit">Set a tag limit</h6>
+<p>In addition to pruning policies, you can also set tag limits on repositories that you manage to restrict the number of tags on a given repository. Repository tag limits are processed in a first in first out (FIFO) manner. For example, if you set a tag limit of 2, adding a third tag would push out the first.</p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../dct/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Content Trust" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Docker Content Trust
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../ucp/" class="md-footer__link md-footer__link--next" aria-label="Next: Universal Control Plane" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Universal Control Plane
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>
