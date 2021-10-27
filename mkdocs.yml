@@ -3,29 +3,44 @@ site_name: DCA
 nav:
   - Home: index.md
 
-  - Getting Started:
-      - Install Docker: install-docker.md
+  - Basics:
+      - Install Docker: Basics/install-docker.md
+      - Concepts: Basics/index.md
+      - Dockerd: Basics/dockerd.md
+      - Commands: Basics/commands.md
+      - Kubernetes: Basics/kubernetes.md
+      - Probes: Basics/probes.md
+
+  - DockerEE:
+      - Docker Hub: DockerEE/docker-hub.md
+      - Docker Enterprise Edition: DockerEE/ee.md
+      - Docker Content Trust: DockerEE/dct.md
+      - Docker Trust Registry: DockerEE/dtr.md
+      - Universal Control Plane: DockerEE/ucp.md
 
   - Storage:
-      - Volumes: Storage/volumes.md
-      - Storage: Storage/Storage.md
       - Configure Devicemapper: Storage/configure-device-mapper.md
-      - Docker Volumes: Storage/docker-volumes.md
-      - Image Cleanup: Storage/image-cleanup.md
+      - Devicemapper: Storage/devicemapper.md
+      - Volumes: Storage/volumes.md
+      - Volumes Handson: Storage/docker-volumes.md
+      - Storage: Storage/Storage.md
       - Storage in a cluster: Storage/storage-in-cluster.md
+      - Image Cleanup: Storage/image-cleanup.md
       - Using Volumes in Docker Containers: Storage/using-volumes-in-docker-containers.md
       - Using Storage Volumes with Docker Swarm: Storage/use-storage-volumes-with-docker-swarm.md
 
   - Security:
+      - AppArmor: Security/apparmor.md
       - Seccomp: Security/seccomp.md
       - SSL Certificate: Security/ssl-certificate.md
 
   - Networking:
+      - Concepts: Networking/concepts.md
       - Bridge: Networking/bridge.md
       - External DNS: Networking/external-dns.md
+      - Swarm: Networking/swarm.md
 
   - Practice:
-      - Commands: commands.md
       - To read: to_read.md
 
 theme:

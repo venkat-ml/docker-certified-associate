@@ -17,6 +17,28 @@ There are no volumes for services.. We can specify mount using --mount flag.
 
 The type of mount can be either volume, bind, tmpfs, or npipe. Defaults to volume if no type is specified.
 
+```bash
+docker build
+docker build [OPTIONS] PATH | URL | -
+--file , -f   Name of the Dockerfile (Default is 'PATH/Dockerfile')
+```
+
+```bash
+docker service create [OPTIONS] IMAGE [COMMAND] [ARG...]
+--label , -l
+--publish , -p
+--tty , -t
+docker service scale <SERVICE-ID>=<NUMBER-OF-TASKS>
+Scale can only be used with replicated service
+docker service rollback [OPTIONS] SERVICE
+docker service update --rollback SERVICE
+docker service update --mount-add SERVICE
+docker service update --publish-add SERVICE
+docker service update --network-add SERVICE
+docker service update --placement-pref-add SERVICE
+docker service update --label-add SERVICE
+docker service update --update-delay 30s redis
+```
 
 ```bash
 $ docker service create \
@@ -36,6 +58,17 @@ docker service create --constraint-rm
 docker service create --placement-pref-add
 
 docker service create --placement-pref-rm
+
+docker service update --publish-add
+
+docker service update --publish-rm
+
+
+docker service rm SERVICE [SERVICE...]
+docker inspect [OPTIONS] NAME|ID [NAME|ID...]
+
+Docker inspect provides detailed information on constructs controlled by Docker.
+By default, docker inspect will render results in a JSON array.
 ```
 
 Sometimes, such as planned maintenance times, you need to set a node to DRAIN availability.
@@ -65,6 +98,8 @@ Node can only be drained for maintanence
 
 ```bash
 docker node update --availability drain node-1
+
+docker node inspect self
 ```
 
 Placement prefs allow you to "spread" your replicas across nodes with certain tags, choosing to put the replicas as much "diverse" as possible.
@@ -84,6 +119,11 @@ docker service create \
 docker service create \
   --constraint 'node.labels.disk == ssd' \
   myreporter:latest
+```
+
+```json
+docker network create -d overlay my-overlay
+Overlay network can be created from Swarm manager only, not from worker nodes
 ```
 
 **Tip:**
@@ -243,3 +283,33 @@ Docker allocates subnet addresses from the address ranges specified by the --def
 - Image signing and Security Scanning are part of DTR
 
 - If key is compromised, then rotate the key in 
+
+```
+docker swarm init --advertise-addr <MANAGER-IP>
+docker swarm join-token [OPTIONS] (worker|manager)
+docker swarm leave
+```
+
+######Find port of a container
+
+```
+docker [s --filter 'name=web'
+
+docker port web
+
+docker inspect --format '{{.NetworkSettings.Ports}}' web
+
+``` 
+
+######docker network
+
+To manage networks, you can use:
+```
+docker network COMMAND
+```
+To display detailed information on one or more networks you can use:
+```
+docker network inspect [OPTIONS] NETWORK [NETWORK...]
+```
+https://docs.docker.com/engine/reference/commandline/network_inspect/
+
